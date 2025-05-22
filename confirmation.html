@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Artisan Home Furnitures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .font-furniture {
+            font-family: 'Playfair Display', serif;
+        }
+        .transition-custom {
+            transition: all 0.3s ease;
+        }
+        .bg-background-light {
+            background-color: #f8f9fa;
+        }
+        .text-primary {
+            color: #4a5568;
+        }
+        .text-primary-dark {
+            color: #2d3748;
+        }
+        .bg-primary {
+            background-color: #4a5568;
+        }
+        .hover\:bg-primary-dark:hover {
+            background-color: #2d3748;
+        }
+    </style>
+</head>
+<body class="bg-background-light">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full bg-white shadow-sm z-50 transition-custom">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-furniture text-2xl font-bold text-primary">Artisan<span class="font-light">Home</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Confirmation Section -->
+    <div class="pt-24 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <div class="text-center mb-8">
+                        <i class="fas fa-check-circle text-6xl text-green-500 mb-6"></i>
+                        <h1 class="text-3xl font-furniture font-bold text-primary-dark mb-4">Thank You for Your Order!</h1>
+                        <p class="text-gray-600 mb-6">Your order has been successfully placed and is being processed.</p>
+                        <p class="text-gray-600 mb-8">We'll send you an email confirmation with your order details shortly.</p>
+                    </div>
+
+                    <!-- Order Details -->
+                    <div class="border-t pt-6">
+                        <h2 class="text-xl font-medium text-primary-dark mb-4">Order Details</h2>
+                        
+                        <!-- Shipping Information -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-primary-dark mb-2">Shipping Information</h3>
+                            <div id="shipping-info" class="text-gray-600">
+                                <!-- Shipping details will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Order Items -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-primary-dark mb-2">Order Items</h3>
+                            <div id="order-items" class="space-y-4">
+                                <!-- Order items will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="border-t pt-4">
+                            <h3 class="text-lg font-medium text-primary-dark mb-2">Order Summary</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Subtotal</span>
+                                    <span id="subtotal" class="font-medium">$0.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Shipping</span>
+                                    <span id="shipping" class="font-medium">$0.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Tax</span>
+                                    <span id="tax" class="font-medium">$0.00</span>
+                                </div>
+                                <div class="flex justify-between text-lg font-medium border-t pt-2 mt-2">
+                                    <span>Total</span>
+                                    <span id="total" class="text-primary">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <a href="index.html" class="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                            Continue Shopping
+                        </a>
+                        <p class="text-sm text-gray-500 mt-4">Order #: <span id="order-number"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Generate a random order number
+            const orderNumber = 'AH' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('order-number').textContent = orderNumber;
+
+            // Load order details from localStorage
+            const orderData = JSON.parse(localStorage.getItem('currentOrder'));
+            if (orderData) {
+                // Display shipping information
+                const shippingInfo = document.getElementById('shipping-info');
+                shippingInfo.innerHTML = `
+                    <p>${orderData.shipping.firstName} ${orderData.shipping.lastName}</p>
+                    <p>${orderData.shipping.address}</p>
+                    <p>${orderData.shipping.city}, ${orderData.shipping.state} ${orderData.shipping.zip}</p>
+                    <p>${orderData.shipping.country}</p>
+                    <p>Email: ${orderData.shipping.email}</p>
+                    <p>Phone: ${orderData.shipping.phone}</p>
+                    ${orderData.shipping.instructions ? `<p class="mt-2">Delivery Instructions: ${orderData.shipping.instructions}</p>` : ''}
+                `;
+
+                // Display order items
+                const orderItems = document.getElementById('order-items');
+                orderItems.innerHTML = orderData.items.map(item => `
+                    <div class="flex items-center justify-between py-2">
+                        <div class="flex items-center">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-primary-dark">${item.name}</h4>
+                                <p class="text-sm text-gray-600">Quantity: ${item.quantity}</p>
+                            </div>
+                        </div>
+                        <p class="text-sm font-medium text-primary-dark">KSh ${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                `).join('');
+
+                // Display order totals
+                document.getElementById('subtotal').textContent = `KSh ${Number(orderData.totals.subtotal).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                document.getElementById('shipping').textContent = `KSh ${Number(orderData.totals.shipping).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                document.getElementById('tax').textContent = `KSh ${Number(orderData.totals.tax).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                document.getElementById('total').textContent = `KSh ${Number(orderData.totals.total).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            }
+        });
+    </script>
+    <script src="theme.js"></script>
+</body>
+</html> 

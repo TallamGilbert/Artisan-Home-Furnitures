@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Collection - Artisan Home Furnitures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-background-light">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Collection Header -->
+    <header class="pt-24 pb-12 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-furniture text-primary-dark text-center mb-4">Office Collection</h1>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto">Enhance your workspace with our ergonomic and stylish office furniture collection, designed for productivity and comfort.</p>
+        </div>
+    </header>
+
+    <!-- Products Grid -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Executive Desk -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/desk.jpg" alt="Desk" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Executive Desk</h3>
+                    <p class="text-gray-600 mb-4">Premium wooden desk with ample storage and cable management.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 89,850 <span class="text-sm text-gray-500 line-through">KSh 109,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="executive-desk"
+                        data-name="Executive Desk"
+                        data-price="89850"
+                        data-description="Premium wooden desk with ample storage and cable management. Features built-in power outlets, USB ports, and cable management system."
+                        data-features='["Built-in power outlets", "USB ports", "Cable management", "Ample storage"]'
+                        data-colors='["#8B4513", "#800000", "#000000"]'
+                        data-images='["../images/products/desk.jpg", "../images/products/desk-2.jpg", "../images/products/desk-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ergonomic Chair -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/office-chair.jpg" alt="Office Chair" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Ergonomic Office Chair</h3>
+                    <p class="text-gray-600 mb-4">Adjustable chair with lumbar support and premium leather upholstery.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 49,850 <span class="text-sm text-gray-500 line-through">KSh 69,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="ergonomic-chair"
+                        data-name="Ergonomic Office Chair"
+                        data-price="49850"
+                        data-description="Adjustable chair with lumbar support and premium leather upholstery. Features multiple adjustment points for optimal comfort."
+                        data-features='["Lumbar support", "Adjustable height", "Tilt mechanism", "Premium leather"]'
+                        data-colors='["#000000", "#8B4513", "#808080"]'
+                        data-images='["../images/products/office-chair.jpg", "../images/products/office-chair-2.jpg", "../images/products/office-chair-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modern Bookshelf -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/bookshelf.jpg" alt="Bookshelf" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Bookshelf</h3>
+                    <p class="text-gray-600 mb-4">Stylish bookshelf with adjustable shelves and built-in lighting.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 79,850 <span class="text-sm text-gray-500 line-through">KSh 99,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="modern-bookshelf"
+                        data-name="Modern Bookshelf"
+                        data-price="79850"
+                        data-description="Stylish bookshelf with adjustable shelves and built-in lighting. Perfect for organizing books and displaying decorative items."
+                        data-features='["LED lighting", "Adjustable shelves", "Cable management", "Durable construction"]'
+                        data-colors='["#FFFFFF", "#000000", "#8B4513"]'
+                        data-images='["../images/products/bookshelf.jpg", "../images/products/bookshelf-2.jpg", "../images/products/bookshelf-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Standing Desk -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/computer-stand.jpg" alt="Computer Stand" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Electric Standing Desk</h3>
+                    <p class="text-gray-600 mb-4">Height-adjustable desk with memory settings and cable management.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 79,850 <span class="text-sm text-gray-500 line-through">KSh 99,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="standing-desk"
+                        data-name="Electric Standing Desk"
+                        data-price="79850"
+                        data-description="Height-adjustable desk with memory settings and cable management. Features smooth electric height adjustment and built-in USB ports."
+                        data-features='["Electric height adjustment", "Memory settings", "Cable management", "Built-in USB ports", "Anti-collision system", "Quiet motor"]'
+                        data-colors='["#FFFFFF", "#000000", "#8B4513"]'
+                        data-images='["../images/products/computer-stand.jpg", "../images/products/computer-stand-2.jpg", "../images/products/computer-stand-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Office Storage Cabinet -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/filing-cabinet.jpg" alt="Filing Cabinet" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Office Storage Cabinet</h3>
+                    <p class="text-gray-600 mb-4">Multi-functional storage cabinet with lockable drawers and file space.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 59,850 <span class="text-sm text-gray-500 line-through">KSh 79,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="storage-cabinet"
+                        data-name="Office Storage Cabinet"
+                        data-price="59850"
+                        data-description="Multi-functional storage cabinet with lockable drawers and file space. Perfect for organizing office supplies and important documents."
+                        data-features='["Lockable drawers", "File storage", "Adjustable shelves", "Durable construction", "Smooth gliding drawers", "Security lock"]'
+                        data-colors='["#FFFFFF", "#000000", "#8B4513"]'
+                        data-images='["../images/products/filing-cabinet.jpg", "../images/products/filing-cabinet-2.jpg", "../images/products/filing-cabinet-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conference Table -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/office-storage.jpg" alt="Office Storage" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Conference Table</h3>
+                    <p class="text-gray-600 mb-4">Large conference table with built-in power and data ports.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 69,850 <span class="text-sm text-gray-500 line-through">KSh 89,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="conference-table"
+                        data-name="Conference Table"
+                        data-price="69850"
+                        data-description="Large conference table with built-in power and data ports. Features a modern design and ample space for meetings and presentations."
+                        data-features='["Built-in power ports", "Data ports", "Cable management", "Seats 8-12 people", "Premium finish", "Durable construction"]'
+                        data-colors='["#FFFFFF", "#000000", "#8B4513"]'
+                        data-images='["../images/products/office-storage.jpg", "../images/products/office-storage-2.jpg", "../images/products/office-storage-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
+            <div class="relative">
+                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+                    <!-- Product Images Section -->
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
+                            <div class="absolute bottom-4 left-4 flex space-x-2">
+                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
+                            <!-- Thumbnails will be added here dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Product Details Section -->
+                    <div class="flex flex-col">
+                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
+                        <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
+                        
+                        <!-- Product Description -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
+                            <p id="modal-product-description" class="text-gray-600"></p>
+                        </div>
+                        
+                        <!-- Product Features -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
+                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
+                                <!-- Features will be added here dynamically -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Color Options -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
+                            <div id="modal-product-colors" class="flex space-x-2">
+                                <!-- Color options will be added here dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-4 mt-auto">
+                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                                Add to Cart
+                            </button>
+                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
+                                View Full Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="../theme.js"></script>
+    <script src="../components/loadComponents.js"></script>
+    <script src="../cart.js"></script>
+    <script src="../quick-view.js"></script>
+    <script src="../script.js"></script>
+    <script src="../js/navbar.js"></script>
+</body>
+</html> 

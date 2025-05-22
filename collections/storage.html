@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Collection - Artisan Home Furnitures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-background-light">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Collection Header -->
+    <header class="pt-24 pb-12 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-furniture text-primary-dark text-center mb-4">Storage Collection</h1>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto">Organize your space with our functional and stylish storage solutions, designed to maximize space while maintaining elegance.</p>
+        </div>
+    </header>
+
+    <!-- Products Grid -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Modern Bookcase -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/modern-bookcase.jpg" alt="Modern Bookcase" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Bookcase</h3>
+                    <p class="text-gray-600 mb-4">Sleek bookcase with adjustable shelves and hidden storage compartments.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 24,850 <span class="text-sm text-gray-500 line-through">KSh 29,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="modern-bookcase"
+                        data-name="Modern Bookcase"
+                        data-price="24850"
+                        data-description="Sleek bookcase with adjustable shelves and hidden storage compartments. Perfect for organizing books and displaying decorative items."
+                        data-features='["Premium wood construction", "Adjustable shelves", "Hidden storage", "Cable management"]'
+                        data-colors='["#8B4513", "#FFFFFF", "#000000"]'
+                        data-images='["../images/products/modern-bookcase.jpg", "../images/products/modern-bookcase-2.jpg", "../images/products/modern-bookcase-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Entertainment Unit -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/entertainment-unit.jpg" alt="Entertainment Unit" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Entertainment Unit</h3>
+                    <p class="text-gray-600 mb-4">Spacious media console with cable management and ample storage.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 34,850 <span class="text-sm text-gray-500 line-through">KSh 39,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="entertainment-unit"
+                        data-name="Entertainment Unit"
+                        data-price="34850"
+                        data-description="Spacious media console with cable management and ample storage. Perfect for organizing your entertainment equipment and media collection."
+                        data-features='["Built-in cable management", "Adjustable shelves", "LED lighting", "Storage drawers"]'
+                        data-colors='["#4A3728", "#FFFFFF", "#808080"]'
+                        data-images='["../images/products/entertainment-unit.jpg", "../images/products/entertainment-unit-2.jpg", "../images/products/entertainment-unit-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modern Wardrobe -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/modern-wardrobe.jpg" alt="Modern Wardrobe" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Wardrobe</h3>
+                    <p class="text-gray-600 mb-4">Full-length wardrobe with sliding doors and built-in organization.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 45,850 <span class="text-sm text-gray-500 line-through">KSh 54,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="modern-wardrobe"
+                        data-name="Modern Wardrobe"
+                        data-price="45850"
+                        data-description="Full-length wardrobe with sliding doors and built-in organization. Perfect for maximizing your storage space while maintaining a clean look."
+                        data-features='["Sliding mirror doors", "Adjustable shelves", "Built-in drawers", "Full-length hanging space"]'
+                        data-colors='["#FFFFFF", "#8B4513", "#808080"]'
+                        data-images='["../images/products/modern-wardrobe.jpg", "../images/products/modern-wardrobe-2.jpg", "../images/products/modern-wardrobe-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Storage Cabinet -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/storage-cabinet.jpg" alt="Storage Cabinet" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Storage Cabinet</h3>
+                    <p class="text-gray-600 mb-4">Versatile cabinet with adjustable shelves and lockable doors.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 19,850 <span class="text-sm text-gray-500 line-through">KSh 24,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="storage-cabinet"
+                        data-name="Storage Cabinet"
+                        data-price="19850"
+                        data-description="Versatile cabinet with adjustable shelves and lockable doors. Perfect for storing valuables and organizing your belongings."
+                        data-features='["Lockable doors", "Adjustable shelves", "Durable construction", "Easy assembly", "Multiple storage options", "Modern design"]'
+                        data-colors='["#8B4513", "#FFFFFF", "#808080"]'
+                        data-images='["../images/products/storage-cabinet.jpg", "../images/products/storage-cabinet-2.jpg", "../images/products/storage-cabinet-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shoe Cabinet -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/shoe-cabinet.jpg" alt="Shoe Cabinet" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Shoe Cabinet</h3>
+                    <p class="text-gray-600 mb-4">Compact shoe storage with ventilation and easy access.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 15,850 <span class="text-sm text-gray-500 line-through">KSh 19,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="shoe-cabinet"
+                        data-name="Shoe Cabinet"
+                        data-price="15850"
+                        data-description="Compact shoe storage with ventilation and easy access. Perfect for organizing your footwear collection while keeping them fresh."
+                        data-features='["Ventilation holes", "Easy access", "Compact design", "Durable materials", "Easy assembly", "Multiple compartments"]'
+                        data-colors='["#FFFFFF", "#8B4513", "#808080"]'
+                        data-images='["../images/products/shoe-cabinet.jpg", "../images/products/shoe-cabinet-2.jpg", "../images/products/shoe-cabinet-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Display Cabinet -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="relative">
+                    <img src="../images/products/display-cabinet.jpg" alt="Display Cabinet" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Display Cabinet</h3>
+                    <p class="text-gray-600 mb-4">Elegant glass-front cabinet with LED lighting and adjustable shelves.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-xl font-medium text-primary">KSh 29,850 <span class="text-sm text-gray-500 line-through">KSh 34,850</span></div>
+                    </div>
+                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
+                        data-product="display-cabinet"
+                        data-name="Display Cabinet"
+                        data-price="29850"
+                        data-description="Elegant glass-front cabinet with LED lighting and adjustable shelves. Perfect for showcasing your collectibles and decorative items."
+                        data-features='["LED lighting", "Adjustable shelves", "Glass doors", "Lockable", "Dust protection", "Modern design"]'
+                        data-colors='["#8B4513", "#FFFFFF", "#808080"]'
+                        data-images='["../images/products/display-cabinet.jpg", "../images/products/display-cabinet-2.jpg", "../images/products/display-cabinet-3.jpg"]'>
+                        Quick View
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
+            <div class="relative">
+                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+                    <!-- Product Images Section -->
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
+                            <div class="absolute bottom-4 left-4 flex space-x-2">
+                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
+                            <!-- Thumbnails will be added here dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Product Details Section -->
+                    <div class="flex flex-col">
+                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
+                        <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
+                        
+                        <!-- Product Description -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
+                            <p id="modal-product-description" class="text-gray-600"></p>
+                        </div>
+                        
+                        <!-- Product Features -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
+                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
+                                <!-- Features will be added here dynamically -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Color Options -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
+                            <div id="modal-product-colors" class="flex space-x-2">
+                                <!-- Color options will be added here dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-4 mt-auto">
+                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                                Add to Cart
+                            </button>
+                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
+                                View Full Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../user-menu.js"></script>
+    <script src="../cart.js"></script>
+    <script src="../quick-view.js"></script>
+    <script src="../script.js" type="module"></script>
+    <script src="../components/loadComponents.js"></script>
+</body>
+</html> 
