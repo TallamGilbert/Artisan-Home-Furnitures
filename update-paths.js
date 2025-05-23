@@ -31,25 +31,6 @@ copyDir('images', 'dist/images');
 copyDir('components', 'dist/components');
 copyDir('js', 'dist/js');
 
-// Copy individual JS files to dist/js
-const jsFiles = [
-    'theme.js',
-    'cart.js',
-    'quick-view.js',
-    'script.js',
-    'user-menu.js',
-    'navbar.js',
-    'loadComponents.js'
-];
-
-jsFiles.forEach(file => {
-    const srcPath = path.join(__dirname, file);
-    const destPath = path.join(__dirname, 'dist/js', file);
-    if (fs.existsSync(srcPath)) {
-        fs.copyFileSync(srcPath, destPath);
-    }
-});
-
 // Update collection pages
 const collectionsDir = path.join(__dirname, 'dist', 'collections');
 const files = fs.readdirSync(collectionsDir);

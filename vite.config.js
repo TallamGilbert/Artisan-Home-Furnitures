@@ -17,6 +17,17 @@ export default defineConfig({
         storage: resolve(__dirname, 'collections/storage.html'),
         office: resolve(__dirname, 'collections/office.html'),
         outdoor: resolve(__dirname, 'collections/outdoor.html')
+      },
+      external: [
+        // External dependencies
+        'bootstrap',
+        'font-awesome'
+      ],
+      output: {
+        // Ensure JavaScript files are properly handled
+        entryFileNames: 'js/[name].js',
+        chunkFileNames: 'js/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
       }
     }
   },
@@ -34,12 +45,13 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: [
-      'script.js',
-      'theme.js',
-      'cart.js',
-      'quick-view.js',
-      'user-menu.js',
-      'navbar.js'
+      'js/script.js',
+      'js/theme.js',
+      'js/cart.js',
+      'js/quick-view.js',
+      'js/user-menu.js',
+      'js/navbar.js',
+      'js/loadComponents.js'
     ]
   }
 }); 
