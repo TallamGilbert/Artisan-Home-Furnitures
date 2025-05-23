@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Home | Premium Furniture</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="/src/styles/styles.css" rel="stylesheet">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-background-light">
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comments fa-lg"></i>
+    </div>
+    
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-xl mx-auto text-center animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-furniture mb-4">Timeless Furniture for Modern Living</h1>
+                <p class="text-xl text-white mb-8">Crafted with care, available near you</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#collections" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary shadow-sm hover:bg-primary-dark transition-custom">
+                        Shop Now
+                    </a>
+                    <a href="#store-locator" class="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-gray-800 transition-custom">
+                        Find a Branch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section (NEW) -->
+    <section class="py-16 bg-background-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold font-furniture text-primary-dark mb-2">Featured Products</h2>
+                <p class="text-gray-600">Our most popular pieces this season</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Featured Product 1 -->
+                <div class="featured-product bg-white rounded-lg overflow-hidden shadow-md" data-product-id="luxe-sofa">
+                    <div class="relative">
+                        <img src="/src/assets/images/products/Luxe Sofa.jpg" alt="Luxe Sofa" class="w-full h-64 object-cover">
+                        <span class="sale-badge">SALE</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-furniture font-medium text-primary-dark">Luxe Sofa</h3>
+                            <div class="text-lg font-medium text-primary">KSh 65,000 <span class="text-sm text-gray-500 line-through">KSh 85,000</span></div>
+                        </div>
+                        <p class="text-gray-600 mb-4">A classic three-seater with premium upholstery and solid wood frame.</p>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="text-sm text-gray-600">Colors:</div>
+                            <div class="color-swatch bg-gray-700 border border-gray-300"></div>
+                            <div class="color-swatch bg-primary border border-gray-300"></div>
+                            <div class="color-swatch bg-blue-700 border border-gray-300"></div>
+                        </div>
+                        <button class="quick-view-btn w-full py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom" 
+                            data-product="luxe-sofa" 
+                            data-name="Luxe Sofa" 
+                            data-price="65000" 
+                            data-description="A classic three-seater with premium upholstery and solid wood frame. Features high-quality fabric, solid hardwood frame, and premium foam cushions for ultimate comfort."
+                            data-features='["Premium fabric upholstery", "Solid hardwood frame", "High-density foam cushions", "Removable covers", "Sturdy wooden legs"]'
+                            data-colors='["#4A5568", "#2B6CB0", "#2C5282"]'
+                            data-images='["images/products/Luxe Sofa.jpg", "images/products/Luxe Sofa 2.jpg", "images/products/Luxe Sofa 3.jpg", "images/products/Luxe Sofa 4.jpg"]'>
+                            Quick View
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 2 -->
+                <div class="featured-product bg-white rounded-lg overflow-hidden shadow-md" data-product-id="artisan-dining-table">
+                    <div class="relative">
+                        <img src="/src/assets/images/products/Artisan Dining Table.jpg" alt="Artisan Dining Table" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-furniture font-medium text-primary-dark">Artisan Dining Table</h3>
+                            <div class="text-lg font-medium text-primary">KSh 75,000</div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Hand-crafted solid wood dining table with natural grain finish.</p>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="text-sm text-gray-600">Wood Type:</div>
+                            <div class="text-sm">Oak</div>
+                            <div class="text-sm mx-2">|</div>
+                            <div class="text-sm">Mahogany</div>
+                            <div class="text-sm mx-2">|</div>
+                            <div class="text-sm">Walnut</div>
+                        </div>
+                        <button class="quick-view-btn w-full py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom" 
+                            data-product="artisan-dining-table" 
+                            data-name="Artisan Dining Table" 
+                            data-price="75000" 
+                            data-description="Hand-crafted solid wood dining table with natural grain finish. Features premium hardwood construction, hand-carved details, and a rich natural finish. Perfect for family gatherings and elegant dining experiences."
+                            data-features='["Solid hardwood construction", "Hand-carved details", "Natural grain finish", "Seats 6-8 people", "Extendable design", "Matching chairs available"]'
+                            data-colors='["#8B4513", "#A0522D", "#6B4423"]'
+                            data-images='["images/products/Artisan Dining Table.jpg", "images/products/Artisan Dining Table 2.jpg", "images/products/Artisan Dining Table 3.jpg", "images/products/Artisan Dining Table 4.jpg"]'>
+                            Quick View
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 3 -->
+                <div class="featured-product bg-white rounded-lg overflow-hidden shadow-md" data-product-id="modern-lounge-chair">
+                    <div class="relative">
+                        <img src="/src/assets/images/products/Modern Lounge Chair.jpg" alt="Modern Lounge Chair" class="w-full h-64 object-cover">
+                        <span class="sale-badge">NEW</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-furniture font-medium text-primary-dark">Modern Lounge Chair</h3>
+                            <div class="text-lg font-medium text-primary">KSh 45,000</div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Mid-century inspired lounge chair with ergonomic design.</p>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="text-sm text-gray-600">Colors:</div>
+                            <div class="color-swatch bg-yellow-700 border border-gray-300"></div>
+                            <div class="color-swatch bg-gray-200 border border-gray-300"></div>
+                            <div class="color-swatch bg-primary-light border border-gray-300"></div>
+                        </div>
+                        <button class="quick-view-btn w-full py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom" 
+                            data-product="modern-lounge-chair" 
+                            data-name="Modern Lounge Chair" 
+                            data-price="45000" 
+                            data-description="Mid-century inspired lounge chair with ergonomic design. Features premium leather upholstery, solid wood frame, and comfortable cushioning. Perfect for creating a cozy reading nook or stylish living room accent."
+                            data-features='["Premium leather upholstery", "Solid wood frame", "Ergonomic design", "High-density foam cushions", "Swivel base", "Easy assembly"]'
+                            data-colors='["#B8860B", "#F5F5F5", "#E6E6FA"]'
+                            data-images='["images/products/Modern Lounge Chair.jpg", "images/products/Modern Lounge Chair 2.jpg", "images/products/Modern Lounge Chair 3.jpg", "images/products/Modern Lounge Chair 4.jpg"]'>
+                            Quick View
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#collections" class="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-custom">
+                    View All Products
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section id="collections" class="py-16 bg-accent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-furniture text-primary-dark mb-4">Our Collections</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our carefully curated furniture collections, each designed to bring style and comfort to your home.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Collection 1: Sofas -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/sofas.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/sofas.jpg" alt="Sofas Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Sofas</h3>
+                            <span class="text-sm text-primary">8 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Luxurious seating solutions for your living space, combining comfort with elegant design.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 2: Dining -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/dining.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/dining.jpg" alt="Dining Sets Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Dining Sets</h3>
+                            <span class="text-sm text-primary">12 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Elegant dining tables and chairs that create the perfect setting for memorable meals.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 3: Bedroom -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/bedroom.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/bedroom.jpg" alt="Bedroom Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Bedroom</h3>
+                            <span class="text-sm text-primary">15 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Create your perfect sanctuary with our range of beds, wardrobes, and bedroom furniture.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 4: Living -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/living.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/Living Room.jpg" alt="Living Room Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Living Room</h3>
+                            <span class="text-sm text-primary">10 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Complete your living space with our selection of coffee tables, TV units, and accent pieces.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 5: Storage -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/storage.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/storage.jpg" alt="Storage Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Storage</h3>
+                            <span class="text-sm text-primary">8 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Smart storage solutions that combine functionality with beautiful design.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 6: Office -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/office.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/office.jpg" alt="Office Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Office</h3>
+                            <span class="text-sm text-primary">6 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Ergonomic and stylish furniture for your home office or workspace.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 7: Outdoor -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="/collections/outdoor.html" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/outdoor.jpg" alt="Outdoor Collection" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">View Collection</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Outdoor</h3>
+                            <span class="text-sm text-primary">5 Items</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Durable and stylish furniture for your garden, patio, or balcony.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 8: Custom -->
+                <div class="collection-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <a href="#custom-designs" class="block relative overflow-hidden h-48">
+                        <img src="/src/assets/images/collections/custom.jpg" alt="Custom Designs" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">Learn More</span>
+                        </div>
+                    </a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-medium text-xl text-primary-dark">Custom Designs</h3>
+                            <span class="text-sm text-primary">Bespoke</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Let us create unique pieces tailored to your specific needs and preferences.</p>
+                        <div class="flex justify-end">
+                            <div class="flex space-x-1">
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                                <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locator -->
+    <section id="store-locator" class="py-16 bg-background-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center font-furniture text-primary-dark mb-12">Find a Store Near You</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div class="bg-accent p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-medium mb-4 text-primary-dark">Our Locations</h3>
+                            
+                            <!-- City Filter -->
+                            <div class="mb-6">
+                                <label for="city-filter" class="block mb-2 text-sm font-medium text-primary-dark">Select City</label>
+                                <select id="city-filter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="all">All Cities</option>
+                                    <option value="nairobi">Nairobi</option>
+                                    <option value="mombasa">Mombasa</option>
+                                    <option value="kisumu">Kisumu</option>
+                                    <option value="nakuru">Nakuru</option>
+                                    <option value="eldoret">Eldoret</option>
+                                    <option value="thika">Thika</option>
+                                    <option value="nanyuki">Nanyuki</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Store List -->
+                            <div id="store-list" class="space-y-4 store-list" style="max-height: 600px; overflow-y: auto; padding-right: 8px;">
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="nairobi" data-lat="-1.2654" data-lng="36.8062">
+                                    <h4 class="font-medium text-primary-dark">Nairobi - Westlands</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Westlands Commercial Center, 2nd Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-7PM, Sun: 11AM-5PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-1.2654,36.8062" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="nairobi" data-lat="-1.3192" data-lng="36.7128">
+                                    <h4 class="font-medium text-primary-dark">Nairobi - Karen</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Karen Shopping Center, The Hub</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-7PM, Sun: 11AM-5PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-1.3192,36.7128" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="mombasa" data-lat="-4.0435" data-lng="39.6682">
+                                    <h4 class="font-medium text-primary-dark">Mombasa - Nyali</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Nyali City Mall, Ground Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-7PM, Sun: 11AM-5PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-4.0435,39.6682" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="kisumu" data-lat="-0.1006" data-lng="34.7285">
+                                    <h4 class="font-medium text-primary-dark">Kisumu - Mega Plaza</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Mega Plaza, 1st Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-6PM, Sun: 12PM-4PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-0.1006,34.7285" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="nakuru" data-lat="-0.2976" data-lng="36.0625">
+                                    <h4 class="font-medium text-primary-dark">Nakuru - CBD</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Central Business District, Furniture Avenue</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-6PM, Sun: 12PM-4PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-0.2976,36.0625" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="eldoret" data-lat="0.5167" data-lng="35.2697">
+                                    <h4 class="font-medium text-primary-dark">Eldoret - Town Center</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Downtown Plaza, Ground Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-6PM, Sun: Closed</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=0.5167,35.2697" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="thika" data-lat="-1.0234" data-lng="37.2249">
+                                    <h4 class="font-medium text-primary-dark">Thika - Two Rivers</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Two Rivers Mall, 2nd Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-7PM, Sun: 11AM-5PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-1.0234,37.2249" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-white rounded-md shadow-sm store-item cursor-pointer hover:bg-gray-50 transition-custom" data-city="nanyuki" data-lat="-0.6879" data-lng="37.2532">
+                                    <h4 class="font-medium text-primary-dark">Nanyuki - Town Center</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Nanyuki Mall, Ground Floor</p>
+                                    <p class="text-sm text-gray-600">Mon-Sat: 9AM-6PM, Sun: 12PM-4PM</p>
+                                    <div class="mt-2">
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-0.6879,37.2532" target="_blank" class="text-sm text-primary hover:text-primary-dark flex items-center">
+                                            <i class="fas fa-directions mr-1"></i> Get Directions
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <a href="#" class="inline-flex justify-center items-center w-full px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary shadow-sm hover:bg-primary-dark transition-custom">
+                                    Book A Store Visit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-2">
+                        <!-- Map Integration -->
+                        <div class="bg-white rounded-lg w-full h-96 shadow-md overflow-hidden map-container">
+                            <iframe 
+                                id="store-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8191673767!2d36.8219!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5a0c0c0c1%3A0x1c0c0c0c0c0c0c0c!2sNairobi!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="mt-4 text-center text-sm text-gray-600">
+                            <p>Click on the map markers to view store details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Furniture Section -->
+    <section id="custom-designs" class="py-16 bg-warm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold font-furniture mb-4">Need something unique?<br>Let us build it.</h2>
+                        <p class="text-gray-700 mb-8">Our master craftsmen can create custom furniture pieces tailored to your exact specifications. From unique dimensions to special materials, we'll bring your vision to life.</p>
+                        <a href="#" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary shadow-sm hover:bg-primary-dark transition-custom">
+                            Request a Custom Design
+                        </a>
+                    </div>
+                    
+                    <div class="relative h-64 md:h-full min-h-[300px]">
+                        <img src="/src/assets/images/custom-designs/workshop.jpg" alt="Custom Furniture Workshop" class="rounded-lg shadow-lg w-full h-full object-cover">
+                        <div class="absolute bottom-0 right-0 transform translate-y-1/4 translate-x-1/4 w-32 h-32 bg-white rounded-lg shadow-xl flex items-center justify-center p-4">
+                            <div class="text-center">
+                                <i class="fas fa-cube text-2xl text-warm mb-2"></i>
+                                <p class="text-xs font-medium">3D Customizer</p>
+                                <p class="text-xs text-gray-500">Coming Soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section id="testimonials" class="py-16 bg-accent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center font-furniture mb-12">What Our Customers Say</h2>
+            
+            <div class="testimonial-slider">
+                <div class="flex transition-transform duration-500" id="testimonial-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                        <div class="bg-warm-dark rounded-lg p-6 h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                    <img src="images/testimonials/customer1.jpeg" alt="Customer" class="h-full w-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Sarah Johnson</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"The quality of my new dining set exceeds all expectations. The attention to detail is remarkable, and the customer service was exceptional from start to finish."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                        <div class="bg-warm-dark rounded-lg p-6 h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                    <img src="images/testimonials/customer2.jpeg" alt="Customer" class="h-full w-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Michael Chang</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"I had a custom sofa made for my awkwardly shaped living room. Not only does it fit perfectly, but the craftsmanship is outstanding. Highly recommend their custom service!"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                        <div class="bg-warm-dark rounded-lg p-6 h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                    <img src="images/testimonials/customer3.jpeg" alt="Customer" class="h-full w-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Amina Kimathi</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"I furnished my entire office with Artisan Home pieces. The modern yet timeless designs have transformed our workspace. The delivery and setup service was flawless."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 focus:outline-none" id="prev-testimonial">
+                    <i class="fas fa-chevron-left text-warm"></i>
+                </button>
+                <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 focus:outline-none" id="next-testimonial">
+                    <i class="fas fa-chevron-right text-warm"></i>
+                </button>
+                
+                <!-- Dots -->
+                <div class="flex justify-center mt-6">
+                    <button class="h-2 w-2 rounded-full bg-warm mx-1 focus:outline-none testimonial-dot active"></button>
+                    <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none testimonial-dot"></button>
+                    <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none testimonial-dot"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section id="our-story" class="py-16 bg-background-warm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="/src/assets/images/our-story.jpg" alt="Our Workshop" class="rounded-lg shadow-lg">
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-3xl font-bold font-furniture mb-4 text-primary-dark">Our Story</h2>
+                        <p class="text-gray-700 mb-4">For over 20 years, Artisan Home has been crafting premium furniture with a focus on quality materials, timeless design, and local craftsmanship.</p>
+                        <p class="text-gray-700 mb-4">Our team of skilled artisans combines traditional woodworking techniques with modern design principles to create furniture that stands the test of time.</p>
+                        <p class="text-gray-700">We're proud to be a local business supporting local communities, with all our furniture made in our workshops using sustainably sourced materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Gallery Feed -->
+    <section class="py-16 bg-accent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold font-furniture mb-2 text-primary-dark">Get Inspired</h2>
+                <p class="text-gray-700">Follow us <a href="#" class="text-primary hover:underline">@ArtisanHome</a> for more inspiration</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative overflow-hidden rounded-lg">
+                    <img src="/src/assets/images/instagram/post1.jpg" alt="Instagram Post" class="instagram-img w-full transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="relative overflow-hidden rounded-lg">
+                    <img src="/src/assets/images/instagram/post2.jpg" alt="Instagram Post" class="instagram-img w-full transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="relative overflow-hidden rounded-lg">
+                    <img src="/src/assets/images/instagram/post3.jpg" alt="Instagram Post" class="instagram-img w-full transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="relative overflow-hidden rounded-lg">
+                    <img src="/src/assets/images/instagram/post4.jpg" alt="Instagram Post" class="instagram-img w-full transition-transform duration-500 hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section id="contact" class="py-16 bg-primary-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold font-furniture mb-4 text-white">Stay Connected</h2>
+                <p class="text-gray-100 mb-6">Join our list for updates on new collections and special offers</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="px-6 py-3 bg-white text-primary-dark font-medium rounded-md hover:bg-gray-100 transition-custom">Join Our List</button>
+                </form>
+                
+                <p class="text-sm text-gray-200 mt-4">We respect your privacy and will never share your information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
+            <div class="relative">
+                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+                    <!-- Product Images Section -->
+                    <div class="space-y-4">
+                    <div class="relative">
+                        <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
+                            <div class="absolute bottom-4 left-4 flex space-x-2">
+                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
+                            <!-- Thumbnails will be added here dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Product Details Section -->
+                    <div class="flex flex-col">
+                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
+                        <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
+                        
+                        <!-- Product Description -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
+                            <p id="modal-product-description" class="text-gray-600"></p>
+                        </div>
+                        
+                        <!-- Product Features -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
+                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
+                                <!-- Features will be added here dynamically -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Color Options -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
+                            <div id="modal-product-colors" class="flex space-x-2">
+                                <!-- Color options will be added here dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-4 mt-auto">
+                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
+                                View Full Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="/src/scripts/theme.js"></script>
+    <script src="../components/loadComponents.js"></script>
+    <script src="/src/scripts/cart.js"></script>
+    <script src="/src/scripts/quick-view.js"></script>
+    <script src="/src/scripts/script.js" type="module"></script>
+    <script src="/src/scripts/user-menu.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+</body>
+</html>
