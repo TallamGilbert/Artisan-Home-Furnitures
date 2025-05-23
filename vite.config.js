@@ -31,5 +31,15 @@ export default defineConfig({
       '@components': resolve(__dirname, './components'),
       '@images': resolve(__dirname, './images')
     }
+  },
+  optimizeDeps: {
+    include: [
+      'script.js',
+      'theme.js',
+      'cart.js',
+      'quick-view.js',
+      'user-menu.js',
+      'navbar.js'
+    ]
   }
 }); 

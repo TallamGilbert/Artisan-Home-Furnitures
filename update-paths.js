@@ -21,6 +21,11 @@ function copyDir(src, dest) {
     }
 }
 
+// Create js directory in dist if it doesn't exist
+if (!fs.existsSync('dist/js')) {
+    fs.mkdirSync('dist/js', { recursive: true });
+}
+
 // Copy static assets to dist
 copyDir('images', 'dist/images');
 copyDir('components', 'dist/components');
@@ -32,12 +37,16 @@ const jsFiles = [
     'cart.js',
     'quick-view.js',
     'script.js',
-    'user-menu.js'
+    'user-menu.js',
+    'navbar.js',
+    'loadComponents.js'
 ];
 
 jsFiles.forEach(file => {
-    if (fs.existsSync(file)) {
-        fs.copyFileSync(file, path.join('dist/js', file));
+    const srcPath = path.join(__dirname, file);
+    const destPath = path.join(__dirname, 'dist/js', file);
+    if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
     }
 });
 
@@ -50,18 +59,18 @@ files.forEach(file => {
         const filePath = path.join(collectionsDir, file);
         let content = fs.readFileSync(filePath, 'utf8');
         
-        // Update CSS and JS paths to absolute
-        content = content.replace(/href="\.\.\/([^"]+)"/g, 'href="/$1"');
-        content = content.replace(/src="\.\.\/([^"]+)"/g, 'src="/$1"');
+        // Update CSS and JS paths to relative
+        content = content.replace(/href="\/([^"]+)"/g, 'href="../$1"');
+        content = content.replace(/src="\/([^"]+)"/g, 'src="../$1"');
         
-        // Update image paths to absolute
-        content = content.replace(/src="\.\.\/images\/([^"]+)"/g, 'src="/images/$1"');
+        // Update image paths to relative
+        content = content.replace(/src="\/images\/([^"]+)"/g, 'src="../images/$1"');
         
         // Update data-image paths in quick-view buttons
-        content = content.replace(/data-images='\["\.\.\/images\/([^"]+)"([^]]+)\]'/g, 'data-images=\'["/images/$1$2]\'');
+        content = content.replace(/data-images='\["\/images\/([^"]+)"([^]]+)\]'/g, 'data-images=\'["../images/$1$2]\'');
         
         // Update component paths
-        content = content.replace(/components\/([^"]+)/g, '/components/$1');
+        content = content.replace(/\/components\/([^"]+)/g, '../components/$1');
         
         fs.writeFileSync(filePath, content);
     }
