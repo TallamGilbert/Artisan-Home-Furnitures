@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import legacy from '@vitejs/plugin-legacy';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig({
   root: '.',
@@ -43,6 +45,19 @@ export default defineConfig({
       '@images': resolve(__dirname, './images')
     }
   },
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
+    createHtmlPlugin({
+      minify: true,
+      inject: {
+        data: {
+          title: 'Artisan Home Furnitures'
+        }
+      }
+    })
+  ],
   optimizeDeps: {
     include: [
       'js/script.js',
