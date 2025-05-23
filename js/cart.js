@@ -123,7 +123,7 @@ class Cart {
                     <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded-md">
                     <div class="ml-4 flex-grow">
                         <h3 class="text-lg font-medium text-primary-dark">${item.name}</h3>
-                        <p class="text-gray-600">$${item.price}</p>
+                        <p class="text-gray-600">KSh ${item.price.toLocaleString()}</p>
                         ${Object.entries(item.selectedOptions).map(([key, value]) => 
                             `<p class="text-sm text-gray-500">${key}: ${value}</p>`
                         ).join('')}
@@ -142,7 +142,7 @@ class Cart {
         });
 
         // Update total
-        cartTotal.textContent = `$${this.total.toFixed(2)}`;
+        cartTotal.textContent = `KSh ${this.total.toLocaleString()}`;
     }
 }
 
