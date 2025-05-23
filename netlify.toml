@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/collections/*"
-  to = "/collections/:splat"
+  to = "/collections/:splat.html"
   status = 200
 
 [[redirects]]
@@ -9,4 +9,5 @@
   status = 200
 
 [build]
-  publish = "." 
+  publish = "."
+  command = "node update-paths.js" 
