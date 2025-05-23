@@ -21,15 +21,19 @@ function copyDir(src, dest) {
     }
 }
 
-// Create js directory in dist if it doesn't exist
-if (!fs.existsSync('dist/js')) {
-    fs.mkdirSync('dist/js', { recursive: true });
-}
+// Create necessary directories in dist
+const dirs = ['dist/js', 'dist/collections', 'dist/images', 'dist/components'];
+dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+});
 
 // Copy static assets to dist
 copyDir('images', 'dist/images');
 copyDir('components', 'dist/components');
 copyDir('js', 'dist/js');
+copyDir('collections', 'dist/collections');
 
 // Update collection pages
 const collectionsDir = path.join(__dirname, 'dist', 'collections');
