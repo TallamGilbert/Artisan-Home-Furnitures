@@ -5,8 +5,8 @@ async function loadComponent(elementId, componentPath) {
         const currentPath = window.location.pathname;
         const isInCollections = currentPath.includes('/collections/');
         
-        // Always use absolute paths
-        const adjustedPath = '/' + componentPath;
+        // Adjust path based on current location
+        const adjustedPath = isInCollections ? '../' + componentPath : '/' + componentPath;
         
         const response = await fetch(adjustedPath);
         if (!response.ok) {

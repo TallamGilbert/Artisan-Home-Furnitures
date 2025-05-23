@@ -4,6 +4,27 @@ class Cart {
         this.items = JSON.parse(localStorage.getItem('cart')) || [];
         this.total = 0;
         this.updateTotal();
+        this.initializeEventListeners();
+    }
+
+    // Initialize event listeners
+    initializeEventListeners() {
+        // Add to cart buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('add-to-cart-btn')) {
+                const modal = document.getElementById('product-modal');
+                const product = {
+                    id: modal.dataset.productId,
+                    name: document.getElementById('modal-product-name').textContent,
+                    price: parseFloat(document.getElementById('modal-product-price').textContent.replace('KSh ', '').replace(',', '')),
+                    images: JSON.parse(modal.dataset.images || '[]'),
+                    selectedOptions: {
+                        color: modal.dataset.selectedColor || 'Default'
+                    }
+                };
+                this.addItem(product);
+            }
+        });
     }
 
     // Add item to cart

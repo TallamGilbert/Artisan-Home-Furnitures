@@ -34,6 +34,7 @@ copyDir('images', 'dist/images');
 copyDir('components', 'dist/components');
 copyDir('js', 'dist/js');
 copyDir('collections', 'dist/collections');
+fs.copyFileSync('styles.css', 'dist/styles.css');
 
 // Update collection pages
 const collectionsDir = path.join(__dirname, 'dist', 'collections');
@@ -49,12 +50,15 @@ files.forEach(file => {
         content = content.replace(/src="\/([^"]+\.js)"/g, 'src="../js/$1"');
         
         // Update CSS paths
+        content = content.replace(/href="\.\.\/styles\.css"/g, 'href="../styles.css"');
         content = content.replace(/href="\/([^"]+\.css)"/g, 'href="../$1"');
         
         // Update image paths
+        content = content.replace(/src="\.\.\/images\/([^"]+)"/g, 'src="../images/$1"');
         content = content.replace(/src="\/images\/([^"]+)"/g, 'src="../images/$1"');
         
         // Update data-image paths in quick-view buttons
+        content = content.replace(/data-images='\["\.\.\/images\/([^"]+)"([^]]+)\]'/g, 'data-images=\'["../images/$1$2]\'');
         content = content.replace(/data-images='\["\/images\/([^"]+)"([^]]+)\]'/g, 'data-images=\'["../images/$1$2]\'');
         
         // Update component paths
