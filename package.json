@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "node update-paths.js",
+    "build": "vite build && node update-paths.js",
     "preview": "vite preview",
     "test": "jest",
     "lint": "eslint src/**/*.js",
@@ -16,9 +16,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
-    "tailwindcss": "^2.2.19",
-    "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

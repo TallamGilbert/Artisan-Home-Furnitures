@@ -9,8 +9,8 @@
   status = 200
 
 [build]
-  publish = "."
-  command = "node update-paths.js"
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18" 
