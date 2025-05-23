@@ -23,5 +23,13 @@ export default defineConfig({
   publicDir: 'public',
   server: {
     port: 3000
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './'),
+      '@js': resolve(__dirname, './js'),
+      '@components': resolve(__dirname, './components'),
+      '@images': resolve(__dirname, './images')
+    }
   }
 }); 

@@ -26,6 +26,21 @@ copyDir('images', 'dist/images');
 copyDir('components', 'dist/components');
 copyDir('js', 'dist/js');
 
+// Copy individual JS files to dist/js
+const jsFiles = [
+    'theme.js',
+    'cart.js',
+    'quick-view.js',
+    'script.js',
+    'user-menu.js'
+];
+
+jsFiles.forEach(file => {
+    if (fs.existsSync(file)) {
+        fs.copyFileSync(file, path.join('dist/js', file));
+    }
+});
+
 // Update collection pages
 const collectionsDir = path.join(__dirname, 'dist', 'collections');
 const files = fs.readdirSync(collectionsDir);
@@ -44,6 +59,9 @@ files.forEach(file => {
         
         // Update data-image paths in quick-view buttons
         content = content.replace(/data-images='\["\.\.\/images\/([^"]+)"([^]]+)\]'/g, 'data-images=\'["/images/$1$2]\'');
+        
+        // Update component paths
+        content = content.replace(/components\/([^"]+)/g, '/components/$1');
         
         fs.writeFileSync(filePath, content);
     }
