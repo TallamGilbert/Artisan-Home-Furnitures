@@ -10,4 +10,7 @@
 
 [build]
   publish = "."
-  command = "node update-paths.js" 
+  command = "node update-paths.js"
+
+[build.environment]
+  NODE_VERSION = "18" 

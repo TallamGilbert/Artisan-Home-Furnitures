@@ -1,19 +1,24 @@
 {
   "name": "artisan-home-furnitures",
   "version": "1.0.0",
-  "description": "Premium furniture e-commerce website",
+  "description": "Artisan Home Furnitures Website",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node update-paths.js",
     "preview": "vite preview",
     "test": "jest",
     "lint": "eslint src/**/*.js",
     "format": "prettier --write \"src/**/*.{js,css,html}\""
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
