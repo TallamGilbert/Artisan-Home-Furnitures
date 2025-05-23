@@ -55,7 +55,73 @@ export default defineConfig({
         data: {
           title: 'Artisan Home Furnitures'
         }
-      }
+      },
+      template: 'index.html',
+      pages: [
+        {
+          filename: 'collections/sofas.html',
+          template: 'collections/sofas.html',
+          injectOptions: {
+            data: {
+              title: 'Sofas Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/dining.html',
+          template: 'collections/dining.html',
+          injectOptions: {
+            data: {
+              title: 'Dining Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/bedroom.html',
+          template: 'collections/bedroom.html',
+          injectOptions: {
+            data: {
+              title: 'Bedroom Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/living.html',
+          template: 'collections/living.html',
+          injectOptions: {
+            data: {
+              title: 'Living Room Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/storage.html',
+          template: 'collections/storage.html',
+          injectOptions: {
+            data: {
+              title: 'Storage Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/office.html',
+          template: 'collections/office.html',
+          injectOptions: {
+            data: {
+              title: 'Office Collection - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'collections/outdoor.html',
+          template: 'collections/outdoor.html',
+          injectOptions: {
+            data: {
+              title: 'Outdoor Collection - Artisan Home Furnitures'
+            }
+          }
+        }
+      ]
     })
   ],
   optimizeDeps: {

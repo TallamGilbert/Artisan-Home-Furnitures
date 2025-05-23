@@ -40,11 +40,14 @@ files.forEach(file => {
         const filePath = path.join(collectionsDir, file);
         let content = fs.readFileSync(filePath, 'utf8');
         
-        // Update CSS and JS paths to relative
-        content = content.replace(/href="\/([^"]+)"/g, 'href="../$1"');
-        content = content.replace(/src="\/([^"]+)"/g, 'src="../$1"');
+        // Update script paths to use js directory
+        content = content.replace(/src="\.\.\/([^"]+\.js)"/g, 'src="../js/$1"');
+        content = content.replace(/src="\/([^"]+\.js)"/g, 'src="../js/$1"');
         
-        // Update image paths to relative
+        // Update CSS paths
+        content = content.replace(/href="\/([^"]+\.css)"/g, 'href="../$1"');
+        
+        // Update image paths
         content = content.replace(/src="\/images\/([^"]+)"/g, 'src="../images/$1"');
         
         // Update data-image paths in quick-view buttons
