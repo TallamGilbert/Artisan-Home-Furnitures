@@ -21,7 +21,97 @@
     </div>
     
     <!-- Navbar Container -->
-    <div id="navbar-container"></div>
+    <nav id="navbar" class="fixed w-full bg-white shadow-sm z-50 transition-custom">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/index.html" class="font-furniture text-2xl font-bold text-primary">Artisan<span class="font-light">Home</span></a>
+                </div>
+                
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <!-- Main Navigation -->
+                    <div class="flex items-center space-x-6">
+                        <a href="/index.html#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Home</a>
+                        <a href="/index.html#collections" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Collections</a>
+                        <a href="/index.html#store-locator" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Stores</a>
+                        <a href="/index.html#our-story" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">About</a>
+                    </div>
+    
+                    <!-- User Actions -->
+                    <div class="flex items-center space-x-4 ml-4">
+                        <!-- Cart -->
+                        <a href="/cart/cart.html" class="relative text-gray-700 hover:text-primary transition-custom">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </a>
+    
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+    
+                        <!-- User Menu -->
+                        <div class="relative" id="user-menu">
+                            <button id="user-menu-button" class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-custom focus:outline-none">
+                                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-200 hover:border-primary transition-custom">
+                                    <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-full w-full object-cover">
+                                </div>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="/auth/profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                <a href="/auth/login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
+                                <a href="/auth/register.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="/index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
+                <a href="/index.html#collections" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
+                <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>
+                <a href="/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
+                
+                <!-- Mobile Cart Link -->
+                <a href="/cart/cart.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Cart
+                    <span id="mobile-cart-count" class="ml-2 bg-primary text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center">0</span>
+                </a>
+                
+                <!-- Mobile User Menu -->
+                <div class="mobile-user-menu">
+                    <div class="user-profile">
+                        <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200">
+                        <span class="text-base font-medium text-gray-700">Account</span>
+                    </div>
+                    <a href="/auth/profile.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Profile</a>
+                    <a href="/auth/login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Login</a>
+                    <a href="/auth/register.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Register</a>
+                </div>
+                
+                <button id="theme-toggle-mobile" class="theme-toggle block w-full text-left px-3 py-2 text-base font-medium rounded-md">
+                    <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav> 
 
     <!-- Hero Section -->
     <section id="home" class="hero-section flex items-center justify-center relative">
