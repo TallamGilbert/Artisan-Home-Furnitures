@@ -477,69 +477,164 @@ html {
 /* Testimonial Slider Styles */
 .testimonial-slider {
     position: relative;
-    padding: 0 3rem;
-}
-
-.testimonial-card {
-    min-height: 200px;
     padding: 0 1rem;
 }
 
-.testimonial-card .bg-warm-dark {
-    height: 100%;
-    padding: 1.5rem;
+.testimonial-card {
+    transition: transform 0.3s ease;
 }
 
-#testimonial-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
+.testimonial-card:hover {
+    transform: translateY(-5px);
 }
 
-#prev-testimonial,
-#next-testimonial {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Responsive styles for testimonials */
+@media (max-width: 640px) {
+    .testimonial-slider {
+        padding: 0 0.5rem;
+    }
+
+    .testimonial-card {
+        padding: 0.5rem;
+    }
+
+    #testimonial-wrapper {
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .testimonial-slider {
+        padding: 0 2rem;
+    }
+
+    .testimonial-card {
+        padding: 1rem;
+    }
+
+    #testimonial-wrapper {
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .testimonial-slider {
+        padding: 0 3rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    #testimonial-wrapper {
+        gap: 2rem;
+    }
+}
+
+/* Testimonial navigation buttons */
+.testimonial-slider button {
+    opacity: 0.8;
     transition: all 0.3s ease;
 }
 
-#prev-testimonial {
-    left: 0;
+.testimonial-slider button:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-#next-testimonial {
-    right: 0;
-}
-
-#prev-testimonial:hover,
-#next-testimonial:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
+/* Testimonial dots */
 .testimonial-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--primary-light);
-    opacity: 0.5;
     transition: all 0.3s ease;
 }
 
 .testimonial-dot.active {
-    opacity: 1;
-    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Testimonial card hover effects */
+.testimonial-card .bg-warm-dark {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .bg-warm-dark {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Ensure smooth transitions */
+#testimonial-wrapper {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+    .testimonial-slider button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .testimonial-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}
+
+/* Add backdrop blur for better visibility */
+.testimonial-slider button {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Improve accessibility */
+.testimonial-slider button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Add loading state */
+.testimonial-slider.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Add animation for testimonial cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Improve text readability */
+.testimonial-card p {
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+/* Add responsive spacing */
+@media (max-width: 640px) {
+    #testimonials {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (min-width: 641px) {
+    #testimonials {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    #testimonials {
+        padding: 5rem 3rem;
+    }
 }
 
 /* Custom scrollbar styles */

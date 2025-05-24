@@ -662,18 +662,18 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center font-furniture mb-12">What Our Customers Say</h2>
             
-            <div class="testimonial-slider">
+            <div class="testimonial-slider relative overflow-hidden">
                 <div class="flex transition-transform duration-500" id="testimonial-wrapper">
                     <!-- Testimonial 1 -->
-                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                    <div class="testimonial-card w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                         <div class="bg-warm-dark rounded-lg p-6 h-full">
                             <div class="flex items-center mb-4">
-                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300 flex-shrink-0">
                                     <img src="/images/testimonials/customer1.jpeg" alt="Customer" class="h-full w-full object-cover">
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium">Sarah Johnson</h4>
-                                    <div class="flex text-yellow-400 text-sm">
+                                    <h4 class="font-medium text-sm sm:text-base">Sarah Johnson</h4>
+                                    <div class="flex text-yellow-400 text-xs sm:text-sm">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -682,20 +682,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-gray-700">"The quality of my new dining set exceeds all expectations. The attention to detail is remarkable, and the customer service was exceptional from start to finish."</p>
+                            <p class="text-gray-700 text-sm sm:text-base">"The quality of my new dining set exceeds all expectations. The attention to detail is remarkable, and the customer service was exceptional from start to finish."</p>
                         </div>
                     </div>
                     
                     <!-- Testimonial 2 -->
-                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                    <div class="testimonial-card w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                         <div class="bg-warm-dark rounded-lg p-6 h-full">
                             <div class="flex items-center mb-4">
-                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300 flex-shrink-0">
                                     <img src="/images/testimonials/customer2.jpeg" alt="Customer" class="h-full w-full object-cover">
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium">Michael Chang</h4>
-                                    <div class="flex text-yellow-400 text-sm">
+                                    <h4 class="font-medium text-sm sm:text-base">Michael Chang</h4>
+                                    <div class="flex text-yellow-400 text-xs sm:text-sm">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -704,20 +704,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-gray-700">"I had a custom sofa made for my awkwardly shaped living room. Not only does it fit perfectly, but the craftsmanship is outstanding. Highly recommend their custom service!"</p>
+                            <p class="text-gray-700 text-sm sm:text-base">"I had a custom sofa made for my awkwardly shaped living room. Not only does it fit perfectly, but the craftsmanship is outstanding. Highly recommend their custom service!"</p>
                         </div>
                     </div>
                     
                     <!-- Testimonial 3 -->
-                    <div class="testimonial-card w-full md:w-1/2 lg:w-1/3 flex-shrink-0">
+                    <div class="testimonial-card w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
                         <div class="bg-warm-dark rounded-lg p-6 h-full">
                             <div class="flex items-center mb-4">
-                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300">
+                                <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-300 flex-shrink-0">
                                     <img src="/images/testimonials/customer3.jpeg" alt="Customer" class="h-full w-full object-cover">
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium">Amina Kimathi</h4>
-                                    <div class="flex text-yellow-400 text-sm">
+                                    <h4 class="font-medium text-sm sm:text-base">Amina Kimathi</h4>
+                                    <div class="flex text-yellow-400 text-xs sm:text-sm">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -726,24 +726,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-gray-700">"I furnished my entire office with Artisan Home pieces. The modern yet timeless designs have transformed our workspace. The delivery and setup service was flawless."</p>
+                            <p class="text-gray-700 text-sm sm:text-base">"I furnished my entire office with Artisan Home pieces. The modern yet timeless designs have transformed our workspace. The delivery and setup service was flawless."</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slider Controls -->
-                <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 focus:outline-none" id="prev-testimonial">
-                    <i class="fas fa-chevron-left text-warm"></i>
+                <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md z-10 focus:outline-none hover:bg-gray-100 transition-custom" id="prev-testimonial">
+                    <i class="fas fa-chevron-left text-warm text-sm sm:text-base"></i>
                 </button>
-                <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 focus:outline-none" id="next-testimonial">
-                    <i class="fas fa-chevron-right text-warm"></i>
+                <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-md z-10 focus:outline-none hover:bg-gray-100 transition-custom" id="next-testimonial">
+                    <i class="fas fa-chevron-right text-warm text-sm sm:text-base"></i>
                 </button>
                 
                 <!-- Dots -->
-                <div class="flex justify-center mt-6">
-                    <button class="h-2 w-2 rounded-full bg-warm mx-1 focus:outline-none testimonial-dot active"></button>
-                    <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none testimonial-dot"></button>
-                    <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none testimonial-dot"></button>
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="h-2 w-2 rounded-full bg-warm focus:outline-none testimonial-dot active"></button>
+                    <button class="h-2 w-2 rounded-full bg-gray-300 focus:outline-none testimonial-dot"></button>
+                    <button class="h-2 w-2 rounded-full bg-gray-300 focus:outline-none testimonial-dot"></button>
                 </div>
             </div>
         </div>
