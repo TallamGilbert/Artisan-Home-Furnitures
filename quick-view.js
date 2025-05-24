@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const quickViewButtons = document.querySelectorAll('.quick-view-btn');
     const productModal = document.getElementById('product-modal');
     const closeModalButton = document.querySelector('.close-modal');
-    const addToCartBtn = document.querySelector('.add-to-cart-btn');
     const modalImage = document.getElementById('modal-product-image');
     const thumbnailContainer = document.getElementById('thumbnail-container');
     const prevImageBtn = document.querySelector('.prev-image');
@@ -19,6 +18,59 @@ document.addEventListener('DOMContentLoaded', function() {
         productModal.classList.add('hidden');
         document.body.style.overflow = '';
         currentProduct = null;
+    }
+
+    // Function to update cart count in UI
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartCount = document.getElementById('cart-count');
+        const mobileCartCount = document.getElementById('mobile-cart-count');
+        
+        if (cartCount) cartCount.textContent = totalItems;
+        if (mobileCartCount) mobileCartCount.textContent = totalItems;
+    }
+
+    // Function to show notification
+    function showNotification(message, isError = false) {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 ${isError ? 'bg-red-500' : 'bg-green-500'} text-white px-6 py-3 rounded-lg shadow-lg z-50`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // Function to add item to cart
+    function addToCart() {
+        try {
+            if (currentProduct) {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const existingItemIndex = cart.findIndex(item => item.id === currentProduct.id);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        id: currentProduct.id,
+                        name: currentProduct.name,
+                        price: currentProduct.price,
+                        image: currentProduct.images[0],
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                showNotification('Item added to cart successfully!');
+                closeModal();
+            }
+        } catch (error) {
+            console.error('Error adding to cart:', error);
+            showNotification('Error adding item to cart. Please try again.', true);
+        }
     }
 
     // Add click event to quick view buttons
@@ -73,12 +125,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentImageIndex = 0;
                 updateGallery();
 
+                // Add click event to the Add to Cart button
+                const addToCartBtn = document.querySelector('.add-to-cart-btn');
+                if (addToCartBtn) {
+                    // Remove any existing event listeners
+                    const newAddToCartBtn = addToCartBtn.cloneNode(true);
+                    addToCartBtn.parentNode.replaceChild(newAddToCartBtn, addToCartBtn);
+                    // Add new event listener
+                    newAddToCartBtn.addEventListener('click', addToCart);
+                }
+
                 // Show modal
                 productModal.classList.remove('hidden');
                 productModal.classList.add('flex', 'items-center', 'justify-center');
                 document.body.style.overflow = 'hidden';
             } catch (error) {
                 console.error('Error opening quick view modal:', error);
+                showNotification('Error opening product details. Please try again.', true);
             }
         });
     });
@@ -119,71 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         nextImageBtn.addEventListener('click', function() {
             currentImageIndex = (currentImageIndex + 1) % productImages.length;
             updateGallery();
-        });
-    }
-
-    // Add to cart functionality
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', function() {
-            try {
-                if (currentProduct) {
-                    // Get the current cart from localStorage
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    
-                    // Check if item already exists in cart
-                    const existingItemIndex = cart.findIndex(item => item.id === currentProduct.id);
-                    
-                    if (existingItemIndex > -1) {
-                        // Update quantity if item exists
-                        cart[existingItemIndex].quantity += 1;
-                    } else {
-                        // Add new item if it doesn't exist
-                        cart.push({
-                            id: currentProduct.id,
-                            name: currentProduct.name,
-                            price: currentProduct.price,
-                            image: currentProduct.images[0],
-                            quantity: 1
-                        });
-                    }
-                    
-                    // Save updated cart
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    
-                    // Update cart count in UI
-                    const cartCount = document.getElementById('cart-count');
-                    const mobileCartCount = document.getElementById('mobile-cart-count');
-                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                    
-                    if (cartCount) cartCount.textContent = totalItems;
-                    if (mobileCartCount) mobileCartCount.textContent = totalItems;
-                    
-                    // Show success message
-                    const notification = document.createElement('div');
-                    notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-                    notification.textContent = 'Item added to cart successfully!';
-                    document.body.appendChild(notification);
-                    
-                    // Remove notification after 3 seconds
-                    setTimeout(() => {
-                        notification.remove();
-                    }, 3000);
-                    
-                    closeModal();
-                }
-            } catch (error) {
-                console.error('Error adding to cart:', error);
-                // Show error message
-                const notification = document.createElement('div');
-                notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-                notification.textContent = 'Error adding item to cart. Please try again.';
-                document.body.appendChild(notification);
-                
-                // Remove notification after 3 seconds
-                setTimeout(() => {
-                    notification.remove();
-                }, 3000);
-            }
         });
     }
 
