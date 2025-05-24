@@ -726,6 +726,81 @@
         </div>
     </section>
 
+    <!-- Request a Design Section -->
+    <section id="request-design" class="py-16 bg-accent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold font-furniture mb-4 text-primary-dark">Request a Custom Design</h2>
+                <p class="text-gray-700 mb-8">Let us create the perfect piece for your space. Our design team will work with you to bring your vision to life.</p>
+                
+                <form class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                            <select id="budget" name="budget" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                <option value="">Select Budget Range</option>
+                                <option value="50k-100k">KSh 50,000 - 100,000</option>
+                                <option value="100k-200k">KSh 100,000 - 200,000</option>
+                                <option value="200k-500k">KSh 200,000 - 500,000</option>
+                                <option value="500k+">KSh 500,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="design-type" class="block text-sm font-medium text-gray-700 mb-2">Type of Design</label>
+                        <select id="design-type" name="design-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                            <option value="">Select Design Type</option>
+                            <option value="sofa">Sofa</option>
+                            <option value="dining-table">Dining Table</option>
+                            <option value="bedroom-set">Bedroom Set</option>
+                            <option value="storage">Storage Solution</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Design Description</label>
+                        <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Describe your design requirements, preferences, and any specific features you'd like..." required></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Upload Reference Images (Optional)</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400"></i>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-primary-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary">
+                                        <span>Upload files</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only" multiple accept="image/*">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full md:w-auto px-8 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-custom">
+                        Submit Design Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Instagram Gallery Feed -->
     <section class="py-16 bg-accent">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
