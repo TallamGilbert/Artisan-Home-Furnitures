@@ -8,19 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if cart is empty
     if (window.cart.items.length === 0) {
         showEmptyCartMessage();
+        console.log('Cart is empty, showing empty cart message.');
         return;
     }
 
     // Render order summary
     renderOrderSummary();
+    console.log('Rendering order summary.');
 
     // Handle shipping form submission
     const shippingForm = document.getElementById('shipping-form');
     if (shippingForm) {
         shippingForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            console.log('Shipping form submitted.');
             if (validateShippingForm()) {
+                console.log('Shipping form validated successfully.');
                 showPaymentForm();
+            } else {
+                console.log('Shipping form validation failed.');
             }
         });
     }
@@ -30,8 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (paymentForm) {
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            console.log('Payment form submitted.');
             if (validatePaymentForm()) {
+                console.log('Payment form validated successfully.');
                 processOrder();
+            } else {
+                console.log('Payment form validation failed.');
             }
         });
 
@@ -75,11 +85,13 @@ function showEmptyCartMessage() {
     if (emptyCartMessage && checkoutForm) {
         emptyCartMessage.classList.remove('hidden');
         checkoutForm.classList.add('hidden');
+        console.log('Toggled visibility to show empty cart message.');
     }
 }
 
 // Validate shipping form
 function validateShippingForm() {
+    console.log('Validating shipping form...');
     const form = document.getElementById('shipping-form');
     if (!form) return false;
 
