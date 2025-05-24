@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Check if cart is empty
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const checkoutForm = document.getElementById('checkout-form');
+    
     if (window.cart.items.length === 0) {
         showEmptyCartMessage();
         console.log('Cart is empty, showing empty cart message.');
@@ -75,6 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Initial progress bar state
+    updateProgressSteps(1); // Set to step 1 on load if cart is not empty
+    console.log('Setting initial progress step to 1.');
 });
 
 // Show empty cart message
@@ -93,58 +100,73 @@ function showEmptyCartMessage() {
 function validateShippingForm() {
     console.log('Validating shipping form...');
     const form = document.getElementById('shipping-form');
-    if (!form) return false;
+    if (!form) {
+        console.log('Shipping form not found.');
+        return false;
+    }
 
     const phone = form.querySelector('input[name="phone"]');
     const zip = form.querySelector('input[name="zip"]');
     
     // Validate phone number (10 digits)
-    if (!/^[0-9]{10}$/.test(phone.value)) {
+    if (phone && !/^[0-9]{10}$/.test(phone.value)) {
         showError(phone, 'Please enter a valid 10-digit phone number');
+        console.log('Phone validation failed.');
         return false;
     }
     
     // Validate ZIP code (5 digits)
-    if (!/^[0-9]{5}$/.test(zip.value)) {
+    if (zip && !/^[0-9]{5}$/.test(zip.value)) {
         showError(zip, 'Please enter a valid 5-digit ZIP code');
+        console.log('ZIP code validation failed.');
         return false;
     }
     
+    console.log('Shipping form validation passed.');
     return true;
 }
 
 // Validate payment form
 function validatePaymentForm() {
+    console.log('Validating payment form...');
     const form = document.getElementById('payment-form');
-    if (!form) return false;
+    if (!form) {
+        console.log('Payment form not found.');
+        return false;
+    }
 
     const cardNumber = form.querySelector('input[name="cardNumber"]');
     const expiry = form.querySelector('input[name="expiry"]');
     const cvv = form.querySelector('input[name="cvv"]');
     
     // Validate card number (16 digits)
-    if (!/^[0-9]{16}$/.test(cardNumber.value)) {
+    if (cardNumber && !/^[0-9]{16}$/.test(cardNumber.value)) {
         showError(cardNumber, 'Please enter a valid 16-digit card number');
+        console.log('Card number validation failed.');
         return false;
     }
     
     // Validate expiry date (MM/YY)
-    if (!/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(expiry.value)) {
+    if (expiry && !/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(expiry.value)) {
         showError(expiry, 'Please enter a valid expiry date (MM/YY)');
+        console.log('Expiry date validation failed.');
         return false;
     }
     
     // Validate CVV (3 digits)
-    if (!/^[0-9]{3}$/.test(cvv.value)) {
+    if (cvv && !/^[0-9]{3}$/.test(cvv.value)) {
         showError(cvv, 'Please enter a valid 3-digit CVV');
+        console.log('CVV validation failed.');
         return false;
     }
     
+    console.log('Payment form validation passed.');
     return true;
 }
 
 // Show error message
 function showError(input, message) {
+    console.log(`Showing error for input: ${input.name}, message: ${message}`);
     const errorDiv = input.parentElement.querySelector('.error-message') || document.createElement('div');
     errorDiv.className = 'error-message text-red-500 text-sm mt-1';
     errorDiv.textContent = message;
@@ -162,13 +184,17 @@ function showError(input, message) {
 
 // Render order summary
 function renderOrderSummary() {
+    console.log('Rendering order summary...');
     const orderItems = document.getElementById('order-items');
     const subtotal = document.getElementById('subtotal');
     const shipping = document.getElementById('shipping');
     const tax = document.getElementById('tax');
     const total = document.getElementById('total');
 
-    if (!orderItems || !window.cart) return;
+    if (!orderItems || !window.cart) {
+        console.log('Order summary elements or cart not found.');
+        return;
+    }
 
     // Calculate totals
     const subtotalAmount = window.cart.total;
@@ -202,6 +228,7 @@ function renderOrderSummary() {
 
 // Show payment form
 function showPaymentForm() {
+    console.log('Showing payment form...');
     const shippingForm = document.getElementById('shipping-form');
     const paymentForm = document.getElementById('payment-form');
     
@@ -211,11 +238,15 @@ function showPaymentForm() {
         
         // Update progress steps
         updateProgressSteps(2);
+        console.log('Updated progress steps to 2.');
+    } else {
+        console.log('Shipping or payment form not found.');
     }
 }
 
 // Go back to shipping form
 function goBackToShipping() {
+    console.log('Going back to shipping form...');
     const shippingForm = document.getElementById('shipping-form');
     const paymentForm = document.getElementById('payment-form');
     
@@ -225,17 +256,31 @@ function goBackToShipping() {
         
         // Update progress steps
         updateProgressSteps(1);
+        console.log('Updated progress steps to 1.');
+    } else {
+        console.log('Shipping or payment form not found for back action.');
     }
 }
 
 // Update progress steps
 function updateProgressSteps(step) {
+    console.log(`Updating progress steps to step: ${step}`);
     const steps = document.querySelectorAll('.flex.items-center');
-    const lines = document.querySelectorAll('.flex-1.h-0\\.5');
+    const lines = document.querySelectorAll('.flex-1.h-0.5');
     
+    if (steps.length === 0) {
+        console.log('Progress steps elements not found.');
+        return;
+    }
+
     steps.forEach((stepEl, index) => {
         const circle = stepEl.querySelector('.w-8.h-8');
         const text = stepEl.querySelector('.text-sm');
+        
+        if (!circle || !text) {
+            console.log(`Circle or text element not found for step index ${index}.`);
+            return;
+        }
         
         // Step circles and text
         if (index < step - 1) { // Completed steps
