@@ -3,6 +3,12 @@
   to = "/collections/:splat.html"
   status = 200
 
+# Handle cart page
+[[redirects]]
+  from = "/cart"
+  to = "/cart/cart.html"
+  status = 200
+
 # Handle static assets first
 [[redirects]]
   from = "/js/*"

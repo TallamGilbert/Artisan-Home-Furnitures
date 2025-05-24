@@ -114,7 +114,7 @@ class Cart {
         if (mobileCartCount) mobileCartCount.textContent = totalItems;
 
         // Update cart page if we're on it
-        if (window.location.pathname.includes('cart.html')) {
+        if (window.location.pathname.includes('/cart')) {
             this.renderCartPage();
         }
     }
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.cart.showNotification('Your cart is empty');
                 return;
             }
-            window.location.href = '../checkout.html';
+            window.location.href = '/checkout.html';
         });
     }
 }); 

@@ -12,6 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        cart: resolve(__dirname, 'cart/cart.html'),
         sofas: resolve(__dirname, 'collections/sofas.html'),
         dining: resolve(__dirname, 'collections/dining.html'),
         bedroom: resolve(__dirname, 'collections/bedroom.html'),
@@ -61,6 +62,15 @@ export default defineConfig({
       },
       template: 'index.html',
       pages: [
+        {
+          filename: 'cart/cart.html',
+          template: 'cart/cart.html',
+          injectOptions: {
+            data: {
+              title: 'Shopping Cart - Artisan Home Furnitures'
+            }
+          }
+        },
         {
           filename: 'collections/sofas.html',
           template: 'collections/sofas.html',
