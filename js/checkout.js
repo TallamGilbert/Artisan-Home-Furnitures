@@ -316,24 +316,60 @@ function updateProgressSteps(step) {
 
 // Process order
 function processOrder() {
-    const shippingForm = document.getElementById('shipping-form');
-    const paymentForm = document.getElementById('payment-form');
-    const confirmationStep = document.getElementById('confirmation-step');
-    
-    if (shippingForm && paymentForm && confirmationStep) {
-        // Hide forms and show confirmation
-        shippingForm.classList.add('hidden');
-        paymentForm.classList.add('hidden');
-        confirmationStep.classList.remove('hidden');
+    try {
+        // Get cart items and totals
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        if (cart.length === 0) {
+            throw new Error('Cart is empty');
+        }
+
+        orderData.items = cart;
+        orderData.totals = calculateTotals(cart);
         
-        // Update progress steps to Confirmation (step 3)
+        // Save order to localStorage
+        localStorage.setItem('currentOrder', JSON.stringify(orderData));
+        
+        // Clear cart
+        localStorage.removeItem('cart');
+        
+        // Update cart counter
+        const cartCount = document.getElementById('cart-count');
+        const mobileCartCount = document.getElementById('mobile-cart-count');
+        if (cartCount) cartCount.textContent = '0';
+        if (mobileCartCount) mobileCartCount.textContent = '0';
+        
+        // Hide payment form and show confirmation
+        document.getElementById('payment-form').classList.add('hidden');
+        document.getElementById('confirmation-step').classList.remove('hidden');
+        
+        // Update progress steps to show completion
         updateProgressSteps(3);
         
-        // Display order details
-        displayOrderDetails();
+        // Update confirmation details
+        updateConfirmationDetails();
         
-        // Clear cart (optional, depends on desired flow)
-        // window.cart.clearCart();
+        // Show success message
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+        notification.textContent = 'Order placed successfully!';
+        document.body.appendChild(notification);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    } catch (error) {
+        console.error('Error processing order:', error);
+        // Show error message
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+        notification.textContent = error.message || 'Error processing order. Please try again.';
+        document.body.appendChild(notification);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }
 }
 
