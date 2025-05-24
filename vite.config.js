@@ -63,7 +63,7 @@ export default defineConfig({
       template: 'index.html',
       pages: [
         {
-          filename: 'cart/cart.html',
+          filename: 'cart/index.html',
           template: 'cart/cart.html',
           injectOptions: {
             data: {

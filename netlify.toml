@@ -5,9 +5,9 @@
 
 # Handle cart page
 [[redirects]]
-  from = "/cart"
-  to = "/cart/cart.html"
-  status = 200
+  from = "/cart/cart.html"
+  to = "/cart"
+  status = 301
 
 # Handle static assets first
 [[redirects]]
