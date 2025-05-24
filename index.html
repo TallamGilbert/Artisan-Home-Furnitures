@@ -15,11 +15,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
-    <!-- Chat Button -->
-    <div class="chat-button" id="chatButton">
-        <i class="fas fa-comments fa-lg"></i>
-    </div>
-    
     <!-- Navbar Container -->
     <nav id="navbar" class="fixed w-full bg-white shadow-sm z-50 transition-custom">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,18 +72,16 @@
                         <span id="tablet-cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </a>
                     
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-md">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bg-white shadow-md z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="/index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
                 <a href="/index.html#collections" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
                 <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>

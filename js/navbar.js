@@ -1,110 +1,181 @@
 // Navbar initialization for all pages
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize navbar functionality
-    initializeNavbar();
-
-    // Initialize cart count
-    updateCartCount();
-
-    // Initialize user menu
-    initializeUserMenu();
-
-    // Initialize theme toggle
-    initializeThemeToggle();
-
-    // Mobile menu functionality
+    // Get DOM elements
+    const navbar = document.getElementById('navbar');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const bottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
+    const bottomNav = document.querySelector('.mobile-bottom-nav');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
 
-    // Toggle mobile menu
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('active');
-    });
+    // Initialize scroll variables
+    let lastScrollTop = 0;
+    let isScrolling = false;
+    let scrollTimeout;
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
+    // Function to handle scroll behavior
+    const handleScroll = () => {
+        if (!navbar) return;
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add/remove shadow based on scroll position
+        if (scrollTop > 0) {
+            navbar.classList.add('shadow-md');
+        } else {
+            navbar.classList.remove('shadow-md');
+        }
+
+        // Handle mobile navigation visibility - only for top navbar
+        if (window.innerWidth <= 768) {
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide top navbar
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show top navbar
+                navbar.style.transform = 'translateY(0)';
+            }
+        }
+
+        lastScrollTop = scrollTop;
+    };
+
+    // Add scroll event listener with throttling
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                isScrolling = false;
+            });
+            isScrolling = true;
         }
     });
 
-    // Handle bottom navigation active states
-    bottomNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Remove active class from all links
-            bottomNavLinks.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
-            link.classList.add('active');
-        });
-    });
+    // Mobile menu functionality
+    function initializeMobileMenu() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    // Set active state based on current page
-    function setActiveNavItem() {
-        const currentPath = window.location.pathname;
-        const currentHash = window.location.hash;
+        if (mobileMenuButton && mobileMenu) {
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    }
+
+    // Initialize mobile menu when DOM is loaded
+    initializeMobileMenu();
+
+    // Theme toggle functionality
+    const toggleTheme = () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        bottomNavLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPath || linkPath === currentPath + currentHash) {
-                link.classList.add('active');
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update theme icon
+        const themeIcon = themeToggle?.querySelector('i');
+        if (themeIcon) {
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    };
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('click', toggleTheme);
+    }
+
+    // User menu functionality
+    if (userMenuButton && userDropdown) {
+        userMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+                userDropdown.classList.add('hidden');
             }
         });
     }
 
-    // Call on page load
-    setActiveNavItem();
+    // Set active navigation item based on current page
+    const setActiveNavItem = () => {
+        const currentPath = window.location.pathname;
+        const currentHash = window.location.hash;
+        
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-link, .nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
 
-    // Update active state on hash change
+        // Set active class based on current path and hash
+        if (currentHash) {
+            const activeLink = document.querySelector(`.nav-link[href$="${currentHash}"], .nav-item[href$="${currentHash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        } else if (currentPath === '/index.html' || currentPath === '/') {
+            const homeLink = document.querySelector('.nav-link[href*="index.html#home"], .nav-item[href*="index.html#home"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+        }
+    };
+
+    // Call setActiveNavItem on page load and hash change
+    setActiveNavItem();
     window.addEventListener('hashchange', setActiveNavItem);
 
-    // Handle scroll behavior for mobile
-    let lastScrollTop = 0;
-    const navbar = document.getElementById('navbar');
-    const bottomNav = document.querySelector('.mobile-bottom-nav');
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            navbar.style.transform = 'translateY(-100%)';
-            bottomNav.style.transform = 'translateY(100%)';
-        } else {
-            // Scrolling up
-            navbar.style.transform = 'translateY(0)';
-            bottomNav.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-
-    // Add smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Close mobile menu after clicking
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    });
-
-    // Handle resize events
+    // Handle window resize
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768 && mobileMenu) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-        }
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('active');
+                }
+            }
+        }, 250);
     });
+
+    // Initialize theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeIcon = themeToggle?.querySelector('i');
+        if (themeIcon) {
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
 });
 
 // Function to initialize navbar functionality
