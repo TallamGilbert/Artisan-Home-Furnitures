@@ -88,31 +88,39 @@
                 <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>
                 <a href="/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
                 
-                <!-- Mobile Cart Link -->
-                <a href="/cart/cart.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
-                    <i class="fas fa-shopping-cart mr-2"></i>
-                    Cart
-                    <span id="mobile-cart-count" class="ml-2 bg-primary text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center">0</span>
-                </a>
-                
-                <!-- Mobile User Menu -->
-                <div class="mobile-user-menu">
-                    <div class="user-profile">
-                        <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200">
-                        <span class="text-base font-medium text-gray-700">Account</span>
-                    </div>
-                    <a href="/auth/profile.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Profile</a>
-                    <a href="/auth/login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Login</a>
-                    <a href="/auth/register.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Register</a>
-                </div>
-                
+                <!-- Theme Toggle Mobile -->
                 <button id="theme-toggle-mobile" class="theme-toggle block w-full text-left px-3 py-2 text-base font-medium rounded-md">
                     <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
                 </button>
             </div>
         </div>
-    </nav> 
+    </nav>
 
+    <!-- Mobile Bottom Navigation -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+        <div class="flex justify-around items-center h-16">
+            <a href="/index.html#home" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="/index.html#collections" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+                <i class="fas fa-th-large text-xl"></i>
+                <span class="text-xs mt-1">Shop</span>
+            </a>
+            <a href="/cart/cart.html" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom relative">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                <span class="text-xs mt-1">Cart</span>
+            </a>
+            <a href="/auth/profile.html" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+                <i class="fas fa-user text-xl"></i>
+                <span class="text-xs mt-1">Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Add padding to main content to prevent overlap with bottom nav -->
+    <div class="pb-16 md:pb-0">
     <!-- Hero Section -->
     <section id="home" class="hero-section flex items-center justify-center relative">
         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
@@ -878,5 +886,6 @@
     <script src="js/script.js" type="module"></script>
     <script src="js/user-menu.js"></script>
     <script src="js/navbar.js"></script>
+    </div>
 </body>
 </html>

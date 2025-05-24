@@ -12,6 +12,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize theme toggle
     initializeThemeToggle();
+
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
+
+    // Toggle mobile menu
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
+        }
+    });
+
+    // Handle bottom navigation active states
+    bottomNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Remove active class from all links
+            bottomNavLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            link.classList.add('active');
+        });
+    });
+
+    // Set active state based on current page
+    function setActiveNavItem() {
+        const currentPath = window.location.pathname;
+        const currentHash = window.location.hash;
+        
+        bottomNavLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === currentPath || linkPath === currentPath + currentHash) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Call on page load
+    setActiveNavItem();
+
+    // Update active state on hash change
+    window.addEventListener('hashchange', setActiveNavItem);
+
+    // Handle scroll behavior for mobile
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+    const bottomNav = document.querySelector('.mobile-bottom-nav');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            navbar.style.transform = 'translateY(-100%)';
+            bottomNav.style.transform = 'translateY(100%)';
+        } else {
+            // Scrolling up
+            navbar.style.transform = 'translateY(0)';
+            bottomNav.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Add smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu after clicking
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Handle resize events
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
+        }
+    });
 });
 
 // Function to determine the correct path to components based on current page
