@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         cart: resolve(__dirname, 'cart/cart.html'),
+        checkout: resolve(__dirname, 'checkout.html'),
         sofas: resolve(__dirname, 'collections/sofas.html'),
         dining: resolve(__dirname, 'collections/dining.html'),
         bedroom: resolve(__dirname, 'collections/bedroom.html'),
@@ -68,6 +69,15 @@ export default defineConfig({
           injectOptions: {
             data: {
               title: 'Shopping Cart - Artisan Home Furnitures'
+            }
+          }
+        },
+        {
+          filename: 'checkout.html',
+          template: 'checkout.html',
+          injectOptions: {
+            data: {
+              title: 'Checkout - Artisan Home Furnitures'
             }
           }
         },
@@ -145,7 +155,8 @@ export default defineConfig({
       'js/quick-view.js',
       'js/user-menu.js',
       'js/navbar.js',
-      'js/loadComponents.js'
+      'js/loadComponents.js',
+      'js/checkout.js'
     ]
   }
 }); 
