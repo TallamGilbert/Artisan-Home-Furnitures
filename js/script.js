@@ -88,41 +88,48 @@ if (chatButton) {
 }
 
 // Testimonial Slider
-if (testimonialWrapper && testimonialDots.length > 0) {
-    let currentTestimonial = 0;
-    const testimonialCount = document.querySelectorAll('.testimonial-card').length;
+function initializeTestimonialSlider() {
+    const wrapper = document.getElementById('testimonial-wrapper');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let currentIndex = 0;
+    const interval = 5000; // Change testimonial every 5 seconds
 
-    function updateTestimonialSlider() {
-        const offset = -currentTestimonial * 100;
-        testimonialWrapper.style.transform = `translateX(${offset}%)`;
+    function updateSlider() {
+        const offset = currentIndex * -100;
+        wrapper.style.transform = `translateX(${offset}%)`;
         
         // Update dots
-        testimonialDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentTestimonial);
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
         });
     }
 
-    if (prevTestimonial) {
-        prevTestimonial.addEventListener('click', () => {
-            currentTestimonial = (currentTestimonial - 1 + testimonialCount) % testimonialCount;
-            updateTestimonialSlider();
-        });
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
     }
 
-    if (nextTestimonial) {
-        nextTestimonial.addEventListener('click', () => {
-            currentTestimonial = (currentTestimonial + 1) % testimonialCount;
-            updateTestimonialSlider();
-        });
-    }
+    // Start automatic sliding
+    let slideInterval = setInterval(nextSlide, interval);
 
-    testimonialDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentTestimonial = index;
-            updateTestimonialSlider();
-        });
+    // Pause on hover
+    wrapper.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
     });
+
+    wrapper.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, interval);
+    });
+
+    // Initialize first slide
+    updateSlider();
 }
+
+// Initialize testimonial slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeTestimonialSlider();
+});
 
 // Store Locator Filter
 if (cityFilter && storeItems.length > 0) {
