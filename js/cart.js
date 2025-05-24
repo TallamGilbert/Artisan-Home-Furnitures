@@ -50,14 +50,17 @@ class Cart {
         this.updateTotal();
         this.saveCart();
         this.updateCartUI();
+        this.showNotification(`${product.name} added to cart`);
     }
 
     // Remove item from cart
     removeItem(index) {
+        const item = this.items[index];
         this.items.splice(index, 1);
         this.updateTotal();
         this.saveCart();
         this.updateCartUI();
+        this.showNotification(`${item.name} removed from cart`);
     }
 
     // Update item quantity
@@ -88,6 +91,18 @@ class Cart {
         localStorage.setItem('cart', JSON.stringify(this.items));
     }
 
+    // Show notification
+    showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
     // Update cart UI
     updateCartUI() {
         // Update cart count
@@ -107,47 +122,71 @@ class Cart {
     // Render cart page
     renderCartPage() {
         const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
+        const emptyCart = document.getElementById('empty-cart');
+        const subtotal = document.getElementById('subtotal');
+        const shipping = document.getElementById('shipping');
+        const tax = document.getElementById('tax');
+        const total = document.getElementById('total');
         
-        if (!cartItems || !cartTotal) return;
+        if (!cartItems || !emptyCart) return;
 
-        // Clear existing items
-        cartItems.innerHTML = '';
+        if (this.items.length === 0) {
+            cartItems.innerHTML = '';
+            emptyCart.classList.remove('hidden');
+            return;
+        }
 
-        // Render each item
-        this.items.forEach((item, index) => {
-            const itemElement = document.createElement('div');
-            itemElement.className = 'cart-item bg-white rounded-lg shadow-sm p-4 mb-4';
-            itemElement.innerHTML = `
-                <div class="flex items-center">
-                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded-md">
-                    <div class="ml-4 flex-grow">
-                        <h3 class="text-lg font-medium text-primary-dark">${item.name}</h3>
-                        <p class="text-gray-600">KSh ${item.price.toLocaleString()}</p>
-                        ${Object.entries(item.selectedOptions).map(([key, value]) => 
-                            `<p class="text-sm text-gray-500">${key}: ${value}</p>`
-                        ).join('')}
-                    </div>
-                    <div class="flex items-center">
+        emptyCart.classList.add('hidden');
+
+        // Calculate totals
+        const subtotalAmount = this.total;
+        const shippingAmount = subtotalAmount > 0 ? 1500 : 0; // KSh 1,500 shipping if cart is not empty
+        const taxAmount = subtotalAmount * 0.16; // 16% tax
+        const totalAmount = subtotalAmount + shippingAmount + taxAmount;
+
+        // Update totals display
+        if (subtotal) subtotal.textContent = `KSh ${subtotalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (shipping) shipping.textContent = `KSh ${shippingAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (tax) tax.textContent = `KSh ${taxAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (total) total.textContent = `KSh ${totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+        // Render cart items
+        cartItems.innerHTML = this.items.map((item, index) => `
+            <div class="bg-white rounded-lg shadow-md p-4 flex items-center">
+                <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded-md">
+                <div class="ml-4 flex-grow">
+                    <h3 class="text-lg font-medium text-primary-dark">${item.name}</h3>
+                    <p class="text-gray-600">KSh ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                    ${Object.entries(item.selectedOptions).map(([key, value]) => 
+                        `<p class="text-sm text-gray-500">${key}: ${value}</p>`
+                    ).join('')}
+                    <div class="flex items-center mt-2">
                         <button class="quantity-btn" onclick="cart.updateQuantity(${index}, ${item.quantity - 1})">-</button>
                         <span class="mx-2">${item.quantity}</span>
                         <button class="quantity-btn" onclick="cart.updateQuantity(${index}, ${item.quantity + 1})">+</button>
-                        <button class="ml-4 text-red-600" onclick="cart.removeItem(${index})">
-                            <i class="fas fa-trash"></i>
-                        </button>
                     </div>
                 </div>
-            `;
-            cartItems.appendChild(itemElement);
-        });
-
-        // Update total
-        cartTotal.textContent = `KSh ${this.total.toLocaleString()}`;
+                <button class="text-red-500 hover:text-red-700 ml-4" onclick="cart.removeItem(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `).join('');
     }
 }
 
 // Initialize cart
-const cart = new Cart();
+window.cart = new Cart();
 
-// Export cart instance
-export default cart; 
+// Add event listener for checkout button
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (window.cart.items.length === 0) {
+                window.cart.showNotification('Your cart is empty');
+                return;
+            }
+            window.location.href = '../checkout.html';
+        });
+    }
+}); 
