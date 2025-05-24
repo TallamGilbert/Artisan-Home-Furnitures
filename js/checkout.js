@@ -444,4 +444,91 @@ function displayOrderDetails() {
             <p>${paymentInfo.cardName || 'N/A'}</p>
         `;
     }
+}
+
+// Update confirmation details
+function updateConfirmationDetails() {
+    try {
+        // Get the current order from localStorage
+        const orderData = JSON.parse(localStorage.getItem('currentOrder'));
+        if (!orderData) {
+            throw new Error('No order data found');
+        }
+
+        // Update order summary
+        const orderItems = document.getElementById('confirmation-items');
+        if (orderItems) {
+            orderItems.innerHTML = orderData.items.map(item => `
+                <div class="flex items-center space-x-4 mb-4">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-medium text-primary-dark">${item.name}</h4>
+                        <p class="text-sm text-gray-600">KSh ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} x ${item.quantity}</p>
+                        ${Object.entries(item.selectedOptions || {}).map(([key, value]) => 
+                            `<p class="text-xs text-gray-500">${key}: ${value}</p>`
+                        ).join('')}
+                    </div>
+                    <div class="text-sm font-medium text-primary-dark">
+                        KSh ${(item.price * item.quantity).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update totals
+        const confirmationSubtotal = document.getElementById('confirmation-subtotal');
+        const confirmationShipping = document.getElementById('confirmation-shipping');
+        const confirmationTax = document.getElementById('confirmation-tax');
+        const confirmationTotal = document.getElementById('confirmation-total');
+
+        if (confirmationSubtotal) confirmationSubtotal.textContent = `KSh ${orderData.totals.subtotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (confirmationShipping) confirmationShipping.textContent = `KSh ${orderData.totals.shipping.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (confirmationTax) confirmationTax.textContent = `KSh ${orderData.totals.tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (confirmationTotal) confirmationTotal.textContent = `KSh ${orderData.totals.total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+        // Update shipping details
+        const confirmationShippingDetails = document.getElementById('confirmation-shipping-details');
+        if (confirmationShippingDetails && orderData.shipping) {
+            confirmationShippingDetails.innerHTML = `
+                <p class="mb-2">${orderData.shipping.firstName} ${orderData.shipping.lastName}</p>
+                <p class="mb-2">${orderData.shipping.email}</p>
+                <p class="mb-2">${orderData.shipping.phone}</p>
+                <p class="mb-2">${orderData.shipping.address}</p>
+                <p class="mb-2">${orderData.shipping.city}, ${orderData.shipping.state} ${orderData.shipping.zip}</p>
+                <p class="mb-2">${orderData.shipping.country}</p>
+                ${orderData.shipping.instructions ? `<p class="mt-2"><strong>Delivery Instructions:</strong> ${orderData.shipping.instructions}</p>` : ''}
+            `;
+        }
+
+        // Update payment details
+        const confirmationPaymentDetails = document.getElementById('confirmation-payment-details');
+        if (confirmationPaymentDetails && orderData.payment) {
+            confirmationPaymentDetails.innerHTML = `
+                <p class="mb-2">Card ending in ${orderData.payment.cardNumber.slice(-4)}</p>
+                <p class="mb-2">${orderData.payment.cardName}</p>
+                <p class="mb-2">Expires: ${orderData.payment.expiry}</p>
+            `;
+        }
+
+        // Update order number
+        const orderNumber = document.getElementById('order-number');
+        if (orderNumber) {
+            const timestamp = new Date().getTime();
+            const randomNum = Math.floor(Math.random() * 1000);
+            orderNumber.textContent = `ORD-${timestamp}-${randomNum}`;
+        }
+
+    } catch (error) {
+        console.error('Error updating confirmation details:', error);
+        // Show error message
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+        notification.textContent = 'Error displaying order confirmation. Please contact support.';
+        document.body.appendChild(notification);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
 } 
