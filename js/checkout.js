@@ -225,20 +225,18 @@ function updateProgressSteps(step) {
         const circle = stepEl.querySelector('.w-8.h-8');
         const text = stepEl.querySelector('.text-sm');
         
-        if (index < step) {
-            // Completed steps
+        // Step circles and text
+        if (index < step - 1) { // Completed steps
             circle.classList.remove('bg-gray-200', 'text-gray-600');
             circle.classList.add('bg-primary', 'text-white');
             text.classList.remove('text-gray-600');
             text.classList.add('text-primary');
-        } else if (index === step) {
-            // Current step
+        } else if (index === step - 1) { // Current step
             circle.classList.remove('bg-gray-200', 'text-gray-600');
             circle.classList.add('bg-primary', 'text-white');
             text.classList.remove('text-gray-600');
             text.classList.add('text-primary');
-        } else {
-            // Upcoming steps
+        } else { // Upcoming steps
             circle.classList.remove('bg-primary', 'text-white');
             circle.classList.add('bg-gray-200', 'text-gray-600');
             text.classList.remove('text-primary');
@@ -248,12 +246,10 @@ function updateProgressSteps(step) {
 
     // Update connecting lines
     lines.forEach((line, index) => {
-        if (index < step) {
-            // Completed lines
+        if (index < step - 1) { // Lines before the current step
             line.classList.remove('bg-gray-200');
             line.classList.add('bg-primary');
-        } else {
-            // Upcoming lines
+        } else { // Lines at or after the current step
             line.classList.remove('bg-primary');
             line.classList.add('bg-gray-200');
         }
@@ -272,23 +268,23 @@ function processOrder() {
         paymentForm.classList.add('hidden');
         confirmationStep.classList.remove('hidden');
         
-        // Update progress steps
+        // Update progress steps to Confirmation (step 3)
         updateProgressSteps(3);
         
         // Display order details
         displayOrderDetails();
         
-        // Clear cart
-        window.cart.clearCart();
+        // Clear cart (optional, depends on desired flow)
+        // window.cart.clearCart();
     }
 }
 
 // Display order details
 function displayOrderDetails() {
-    const shippingDetails = document.getElementById('confirmation-shipping');
-    const paymentDetails = document.getElementById('confirmation-payment');
+    const confirmationShipping = document.getElementById('confirmation-shipping');
+    const confirmationPayment = document.getElementById('confirmation-payment');
     
-    if (shippingDetails && paymentDetails) {
+    if (confirmationShipping && confirmationPayment) {
         // Get shipping form data
         const formData = new FormData(document.getElementById('shipping-form'));
         const shippingInfo = {
@@ -303,14 +299,17 @@ function displayOrderDetails() {
             instructions: formData.get('instructions')
         };
         
-        // Get payment form data
+        // Get payment form data (Note: You might want to store this more securely than just getting from the form on confirmation)
+        const cardNameInput = document.querySelector('#payment-form input[name="cardName"]');
+        const cardNumberInput = document.querySelector('#payment-form input[name="cardNumber"]');
+
         const paymentInfo = {
-            cardNumber: document.querySelector('input[name="cardNumber"]').value,
-            cardName: document.querySelector('input[name="cardName"]').value
+            cardNumber: cardNumberInput ? cardNumberInput.value : '',
+            cardName: cardNameInput ? cardNameInput.value : ''
         };
         
         // Display shipping details
-        shippingDetails.innerHTML = `
+        confirmationShipping.innerHTML = `
             <p>${shippingInfo.name}</p>
             <p>${shippingInfo.email}</p>
             <p>${shippingInfo.phone}</p>
@@ -321,9 +320,9 @@ function displayOrderDetails() {
         `;
         
         // Display payment details
-        paymentDetails.innerHTML = `
-            <p>Card ending in ${paymentInfo.cardNumber.slice(-4)}</p>
-            <p>${paymentInfo.cardName}</p>
+        confirmationPayment.innerHTML = `
+            <p>Card ending in ${paymentInfo.cardNumber ? paymentInfo.cardNumber.slice(-4) : 'N/A'}</p>
+            <p>${paymentInfo.cardName || 'N/A'}</p>
         `;
     }
 } 
