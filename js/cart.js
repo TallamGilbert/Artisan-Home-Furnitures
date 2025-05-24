@@ -117,6 +117,11 @@ class Cart {
         if (window.location.pathname.includes('/cart')) {
             this.renderCartPage();
         }
+
+        // Update checkout page if we're on it
+        if (window.location.pathname.includes('/checkout')) {
+            this.renderCheckoutPage();
+        }
     }
 
     // Render cart page
@@ -169,6 +174,57 @@ class Cart {
                 <button class="text-red-500 hover:text-red-700 ml-4" onclick="cart.removeItem(${index})">
                     <i class="fas fa-trash"></i>
                 </button>
+            </div>
+        `).join('');
+    }
+
+    // Render checkout page
+    renderCheckoutPage() {
+        const orderItems = document.getElementById('order-items');
+        const subtotal = document.getElementById('subtotal');
+        const shipping = document.getElementById('shipping');
+        const tax = document.getElementById('tax');
+        const total = document.getElementById('total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const checkoutForm = document.getElementById('checkout-form');
+
+        if (!orderItems || !emptyCartMessage || !checkoutForm) return;
+
+        if (this.items.length === 0) {
+            emptyCartMessage.classList.remove('hidden');
+            checkoutForm.classList.add('hidden');
+            return;
+        }
+
+        emptyCartMessage.classList.add('hidden');
+        checkoutForm.classList.remove('hidden');
+
+        // Calculate totals
+        const subtotalAmount = this.total;
+        const shippingAmount = subtotalAmount > 0 ? 1500 : 0; // KSh 1,500 shipping if cart is not empty
+        const taxAmount = subtotalAmount * 0.16; // 16% tax
+        const totalAmount = subtotalAmount + shippingAmount + taxAmount;
+
+        // Update totals display
+        if (subtotal) subtotal.textContent = `KSh ${subtotalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (shipping) shipping.textContent = `KSh ${shippingAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (tax) tax.textContent = `KSh ${taxAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        if (total) total.textContent = `KSh ${totalAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+        // Render order items
+        orderItems.innerHTML = this.items.map(item => `
+            <div class="flex items-center space-x-4">
+                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                <div class="flex-grow">
+                    <h4 class="text-sm font-medium text-primary-dark">${item.name}</h4>
+                    <p class="text-sm text-gray-600">KSh ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} x ${item.quantity}</p>
+                    ${Object.entries(item.selectedOptions).map(([key, value]) => 
+                        `<p class="text-xs text-gray-500">${key}: ${value}</p>`
+                    ).join('')}
+                </div>
+                <div class="text-sm font-medium text-primary-dark">
+                    KSh ${(item.price * item.quantity).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                </div>
             </div>
         `).join('');
     }

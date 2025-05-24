@@ -224,20 +224,35 @@ function updateProgressSteps(step) {
         const text = stepEl.querySelector('.text-sm');
         
         if (index < step) {
+            // Completed steps
             circle.classList.remove('bg-gray-200', 'text-gray-600');
             circle.classList.add('bg-primary', 'text-white');
             text.classList.remove('text-gray-600');
             text.classList.add('text-primary');
         } else if (index === step) {
+            // Current step
             circle.classList.remove('bg-gray-200', 'text-gray-600');
             circle.classList.add('bg-primary', 'text-white');
             text.classList.remove('text-gray-600');
             text.classList.add('text-primary');
         } else {
+            // Upcoming steps
             circle.classList.remove('bg-primary', 'text-white');
             circle.classList.add('bg-gray-200', 'text-gray-600');
             text.classList.remove('text-primary');
             text.classList.add('text-gray-600');
+        }
+
+        // Update connecting lines
+        const line = stepEl.nextElementSibling;
+        if (line && line.classList.contains('flex-1')) {
+            if (index < step) {
+                line.classList.remove('bg-gray-200');
+                line.classList.add('bg-primary');
+            } else {
+                line.classList.remove('bg-primary');
+                line.classList.add('bg-gray-200');
+            }
         }
     });
 }
