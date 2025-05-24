@@ -323,8 +323,33 @@ function processOrder() {
             throw new Error('Cart is empty');
         }
 
-        orderData.items = cart;
-        orderData.totals = calculateTotals(cart);
+        // Initialize orderData object
+        const orderData = {
+            items: cart,
+            totals: {
+                subtotal: window.cart.total,
+                shipping: window.cart.total > 0 ? 1500 : 0,
+                tax: window.cart.total * 0.16,
+                total: window.cart.total + (window.cart.total > 0 ? 1500 : 0) + (window.cart.total * 0.16)
+            },
+            shipping: {
+                firstName: document.querySelector('input[name="firstName"]').value,
+                lastName: document.querySelector('input[name="lastName"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                phone: document.querySelector('input[name="phone"]').value,
+                address: document.querySelector('input[name="address"]').value,
+                city: document.querySelector('input[name="city"]').value,
+                state: document.querySelector('input[name="state"]').value,
+                zip: document.querySelector('input[name="zip"]').value,
+                country: document.querySelector('select[name="country"]').value,
+                instructions: document.querySelector('textarea[name="instructions"]').value
+            },
+            payment: {
+                cardNumber: document.querySelector('input[name="cardNumber"]').value,
+                cardName: document.querySelector('input[name="cardName"]').value,
+                expiry: document.querySelector('input[name="expiry"]').value
+            }
+        };
         
         // Save order to localStorage
         localStorage.setItem('currentOrder', JSON.stringify(orderData));
