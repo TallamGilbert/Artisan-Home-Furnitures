@@ -137,112 +137,21 @@ class ProductModalService {
   }
 }
 
-// Initialize the service
-const productModalService = new ProductModalService();
-
 // Quick View Modal Functionality
+// Removed redundant DOMContentLoaded listener and associated logic
+
+// Initialize the service and its listeners once the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('product-modal');
+    // Initialize the service
+    window.productModalService = new ProductModalService();
+    // Initialize event listeners for modal controls
+    window.productModalService.initializeEventListeners();
+
+    // Event listeners for opening the modal (e.g., on Quick View buttons)
     const quickViewButtons = document.querySelectorAll('.quick-view-btn');
-    const closeModalButton = document.querySelector('.close-modal');
-    let currentImageIndex = 0;
-    let productImages = [];
-
-    // Open modal
     quickViewButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.dataset.product;
-            const productName = button.dataset.name;
-            const productPrice = button.dataset.price;
-            const productDescription = button.dataset.description;
-            const productFeatures = JSON.parse(button.dataset.features || '[]');
-            const productColors = JSON.parse(button.dataset.colors || '[]');
-            productImages = JSON.parse(button.dataset.images || '[]');
-
-            // Set modal data
-            modal.dataset.productId = productId;
-            modal.dataset.images = JSON.stringify(productImages);
-            
-            // Update modal content
-            document.getElementById('modal-product-name').textContent = productName;
-            document.getElementById('modal-product-price').textContent = `KSh ${parseInt(productPrice).toLocaleString()}`;
-            document.getElementById('modal-product-description').textContent = productDescription;
-            
-            // Update features
-            const featuresList = document.getElementById('modal-product-features');
-            featuresList.innerHTML = productFeatures.map(feature => `<li>${feature}</li>`).join('');
-            
-            // Update colors
-            const colorsContainer = document.getElementById('modal-product-colors');
-            colorsContainer.innerHTML = productColors.map(color => `
-                <button class="color-option w-8 h-8 rounded-full border-2 border-gray-300 hover:border-primary transition-custom"
-                    style="background-color: ${color}"
-                    data-color="${color}">
-                </button>
-            `).join('');
-
-            // Set initial image
-            currentImageIndex = 0;
-            updateProductImage();
-
-            // Show modal
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        button.addEventListener('click', (event) => {
+            window.productModalService.handleQuickViewClick(event); // Use service method
         });
     });
-
-    // Close modal
-    closeModalButton.addEventListener('click', () => {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-    });
-
-    // Close modal when clicking outside
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Image navigation
-    document.querySelector('.prev-image').addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
-        updateProductImage();
-    });
-
-    document.querySelector('.next-image').addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex + 1) % productImages.length;
-        updateProductImage();
-    });
-
-    // Color selection
-    document.getElementById('modal-product-colors').addEventListener('click', (e) => {
-        if (e.target.classList.contains('color-option')) {
-            // Remove selected class from all color options
-            document.querySelectorAll('.color-option').forEach(option => {
-                option.classList.remove('border-primary');
-            });
-            
-            // Add selected class to clicked color option
-            e.target.classList.add('border-primary');
-            
-            // Update selected color in modal data
-            modal.dataset.selectedColor = e.target.dataset.color;
-        }
-    });
-
-    function updateProductImage() {
-        const mainImage = document.getElementById('modal-product-image');
-        mainImage.src = productImages[currentImageIndex];
-        
-        // Update thumbnails
-        const thumbnailContainer = document.getElementById('thumbnail-container');
-        thumbnailContainer.innerHTML = productImages.map((image, index) => `
-            <img src="${image}" 
-                alt="Thumbnail ${index + 1}" 
-                class="w-20 h-20 object-cover rounded-md cursor-pointer ${index === currentImageIndex ? 'ring-2 ring-primary' : ''}"
-                onclick="currentImageIndex = ${index}; updateProductImage();">
-        `).join('');
-    }
 }); 
