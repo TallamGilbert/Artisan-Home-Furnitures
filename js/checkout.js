@@ -266,7 +266,7 @@ function goBackToShipping() {
 function updateProgressSteps(step) {
     console.log(`Updating progress steps to step: ${step}`);
     const steps = document.querySelectorAll('.flex.items-center');
-    const lines = document.querySelectorAll('.flex-1.h-0.5');
+    const lines = document.querySelectorAll('#progress-bar-container .flex-1');
     
     if (steps.length === 0) {
         console.log('Progress steps elements not found.');
