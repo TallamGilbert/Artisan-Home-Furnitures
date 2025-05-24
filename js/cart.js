@@ -5,6 +5,10 @@ class Cart {
         this.total = 0;
         this.updateTotal();
         this.initializeEventListeners();
+        // Initialize cart UI when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            this.updateCartUI();
+        });
     }
 
     // Initialize event listeners
