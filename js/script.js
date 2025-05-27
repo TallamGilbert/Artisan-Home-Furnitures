@@ -92,10 +92,18 @@ function initializeTestimonialSlider() {
     const wrapper = document.getElementById('testimonial-wrapper');
     const cards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.testimonial-dot');
+
+    // Check if all required elements exist
+    if (!wrapper || cards.length === 0 || dots.length === 0) {
+        console.warn('Testimonial slider elements not found. Skipping initialization.');
+        return;
+    }
+
     let currentIndex = 0;
     const interval = 5000; // Change testimonial every 5 seconds
 
     function updateSlider() {
+        if (!wrapper) return;
         const offset = currentIndex * -100;
         wrapper.style.transform = `translateX(${offset}%)`;
         
@@ -106,6 +114,7 @@ function initializeTestimonialSlider() {
     }
 
     function nextSlide() {
+        if (cards.length === 0) return;
         currentIndex = (currentIndex + 1) % cards.length;
         updateSlider();
     }
@@ -128,7 +137,11 @@ function initializeTestimonialSlider() {
 
 // Initialize testimonial slider when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initializeTestimonialSlider();
+    try {
+        initializeTestimonialSlider();
+    } catch (error) {
+        console.warn('Error initializing testimonial slider:', error);
+    }
 });
 
 // Store Locator Filter

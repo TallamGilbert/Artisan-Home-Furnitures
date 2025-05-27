@@ -1,55 +1,4 @@
 // Navbar initialization for all pages
-document.addEventListener('DOMContentLoaded', () => {
-    // Load navbar and footer components
-    loadComponent('navbar-container', getComponentPath('navbar.html'));
-    loadComponent('footer-container', getComponentPath('footer.html'));
-
-    // Initialize cart count
-    updateCartCount();
-
-    // Initialize user menu
-    initializeUserMenu();
-
-    // Initialize theme toggle
-    initializeThemeToggle();
-});
-
-// Function to determine the correct path to components based on current page
-function getComponentPath(componentName) {
-    const currentPath = window.location.pathname;
-    const isInCollections = currentPath.includes('/collections/');
-    const isInAuth = currentPath.includes('/auth/');
-    const isInCart = currentPath.includes('/cart/');
-    const isInCheckout = currentPath.includes('/checkout/');
-    
-    // Determine how many levels deep we are from the root
-    let levelsDeep = 0;
-    if (isInCollections || isInAuth || isInCart || isInCheckout) {
-        levelsDeep = 1;
-    }
-    
-    // Build the path with appropriate number of parent directory references
-    return '../'.repeat(levelsDeep) + 'components/' + componentName;
-}
-
-// Function to load HTML components
-async function loadComponent(elementId, componentPath) {
-    try {
-        const response = await fetch(componentPath);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
-        
-        // Initialize navbar functionality after loading
-        if (componentPath.includes('navbar.html')) {
-            initializeNavbar();
-        }
-    } catch (error) {
-        console.error(`Error loading component ${componentPath}:`, error);
-    }
-}
 
 // Function to initialize navbar functionality
 function initializeNavbar() {
@@ -195,7 +144,7 @@ function updateThemeIcon(theme) {
     
     if (themeToggleMobile) {
         themeToggleMobile.innerHTML = theme === 'light' 
-            ? '<i class="fas fa-moon mr-2"></i> Toggle Dark Mode'
-            : '<i class="fas fa-sun mr-2"></i> Toggle Light Mode';
+            ? '<i class="fas fa-moon text-xl"></i>'
+            : '<i class="fas fa-sun text-xl"></i>';
     }
 } 

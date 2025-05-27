@@ -1,5 +1,5 @@
-// Navbar initialization for all pages
-document.addEventListener('DOMContentLoaded', () => {
+// Function to initialize navbar functionality
+function initializeNavbar() {
     // Get DOM elements
     const navbar = document.getElementById('navbar');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -176,110 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
     }
-});
-
-// Function to initialize navbar functionality
-function initializeNavbar() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const bottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
-    const navbar = document.getElementById('navbar');
-    const bottomNav = document.querySelector('.mobile-bottom-nav');
-
-    // Toggle mobile menu
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    }
-
-    // Handle bottom navigation active states
-    if (bottomNavLinks.length > 0) {
-        bottomNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // Remove active class from all links
-                bottomNavLinks.forEach(l => l.classList.remove('active'));
-                // Add active class to clicked link
-                link.classList.add('active');
-            });
-        });
-
-        // Set active state based on current page
-        function setActiveNavItem() {
-            const currentPath = window.location.pathname;
-            const currentHash = window.location.hash;
-            
-            bottomNavLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
-                if (linkPath === currentPath || linkPath === currentPath + currentHash) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Call on page load
-        setActiveNavItem();
-
-        // Update active state on hash change
-        window.addEventListener('hashchange', setActiveNavItem);
-    }
-
-    // Handle scroll behavior for mobile
-    if (navbar && bottomNav) {
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                navbar.style.transform = 'translateY(-100%)';
-                bottomNav.style.transform = 'translateY(100%)';
-            } else {
-                // Scrolling up
-                navbar.style.transform = 'translateY(0)';
-                bottomNav.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-    }
-
-    // Add smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Close mobile menu after clicking
-                if (mobileMenu) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('active');
-                }
-            }
-        });
-    });
-
-    // Handle resize events
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768 && mobileMenu) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-        }
-    });
 }
 
 // Function to update cart count
@@ -356,4 +252,13 @@ function updateThemeIcon(theme) {
             icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
     });
-} 
+}
+
+// Initialize navbar functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all navbar functionality
+    initializeNavbar();
+    initializeUserMenu();
+    initializeThemeToggle();
+    updateCartCount();
+}); 

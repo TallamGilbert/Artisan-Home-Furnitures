@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="../styles.css" rel="stylesheet">
 </head>
-<body class="font-sans antialiased text-gray-800 bg-background-light">
+<body class="font-sans antialiased text-gray-800 bg-background-light min-h-screen flex flex-col">
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
@@ -22,193 +22,196 @@
     <!-- Navbar Container -->
     <div id="navbar-container"></div>
 
-    <!-- Profile Section -->
-    <section class="pt-24 pb-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <!-- Profile Header -->
-                    <div class="bg-primary p-6 text-white">
-                        <div class="flex items-center space-x-4">
-                            <div class="relative h-24 w-24 rounded-full bg-white p-1 group">
-                                <img src="../images/default-avatar.jpeg" alt="Profile Picture" id="profile-avatar" class="h-full w-full rounded-full object-cover">
-                                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" id="avatar-upload-trigger">
-                                    <i class="fas fa-camera text-white text-xl"></i>
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Profile Section -->
+        <section class="pt-24 pb-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <!-- Profile Header -->
+                        <div class="bg-primary p-6 text-white">
+                            <div class="flex items-center space-x-4">
+                                <div class="relative h-24 w-24 rounded-full bg-white p-1 group">
+                                    <img src="../images/default-avatar.jpeg" alt="Profile Picture" id="profile-avatar" class="h-full w-full rounded-full object-cover">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" id="avatar-upload-trigger">
+                                        <i class="fas fa-camera text-white text-xl"></i>
+                                    </div>
+                                    <input type="file" id="avatar-upload" class="hidden" accept="image/*">
                                 </div>
-                                <input type="file" id="avatar-upload" class="hidden" accept="image/*">
-                            </div>
-                            <div>
-                                <h1 class="text-2xl font-bold" id="profile-name">John Doe</h1>
-                                <p class="text-primary-light" id="profile-email">john.doe@example.com</p>
+                                <div>
+                                    <h1 class="text-2xl font-bold" id="profile-name">John Doe</h1>
+                                    <p class="text-primary-light" id="profile-email">john.doe@example.com</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Profile Content -->
-                    <div class="p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <!-- Navigation Sidebar -->
-                            <div class="md:col-span-1">
-                                <nav class="space-y-1">
-                                    <a href="#personal-info" class="profile-nav-link active flex items-center px-4 py-2 text-sm font-medium rounded-md">
-                                        <i class="fas fa-user mr-3"></i>
-                                        Personal Information
-                                    </a>
-                                    <a href="#orders" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
-                                        <i class="fas fa-shopping-bag mr-3"></i>
-                                        Order History
-                                    </a>
-                                    <a href="#wishlist" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
-                                        <i class="fas fa-heart mr-3"></i>
-                                        Wishlist
-                                    </a>
-                                    <a href="#addresses" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
-                                        <i class="fas fa-map-marker-alt mr-3"></i>
-                                        Addresses
-                                    </a>
-                                    <a href="#settings" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
-                                        <i class="fas fa-cog mr-3"></i>
-                                        Settings
-                                    </a>
-                                </nav>
-                            </div>
-
-                            <!-- Main Content Area -->
-                            <div class="md:col-span-2">
-                                <!-- Personal Information Section -->
-                                <div id="personal-info" class="profile-section">
-                                    <h2 class="text-xl font-bold mb-4">Personal Information</h2>
-                                    <form class="space-y-4">
-                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700">First Name</label>
-                                                <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700">Last Name</label>
-                                                <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700">Email</label>
-                                            <input type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700">Phone</label>
-                                            <input type="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                        </div>
-                                        <div class="flex justify-end">
-                                            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                                                Save Changes
-                                            </button>
-                                        </div>
-                                    </form>
+                        <!-- Profile Content -->
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Navigation Sidebar -->
+                                <div class="md:col-span-1">
+                                    <nav class="space-y-1">
+                                        <a href="#personal-info" class="profile-nav-link active flex items-center px-4 py-2 text-sm font-medium rounded-md">
+                                            <i class="fas fa-user mr-3"></i>
+                                            Personal Information
+                                        </a>
+                                        <a href="#orders" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
+                                            <i class="fas fa-shopping-bag mr-3"></i>
+                                            Order History
+                                        </a>
+                                        <a href="#wishlist" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
+                                            <i class="fas fa-heart mr-3"></i>
+                                            Wishlist
+                                        </a>
+                                        <a href="#addresses" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
+                                            <i class="fas fa-map-marker-alt mr-3"></i>
+                                            Addresses
+                                        </a>
+                                        <a href="#settings" class="profile-nav-link flex items-center px-4 py-2 text-sm font-medium rounded-md">
+                                            <i class="fas fa-cog mr-3"></i>
+                                            Settings
+                                        </a>
+                                    </nav>
                                 </div>
 
-                                <!-- Order History Section -->
-                                <div id="orders" class="profile-section hidden">
-                                    <h2 class="text-xl font-bold mb-4">Order History</h2>
-                                    <div class="space-y-4">
-                                        <!-- Sample Order -->
-                                        <div class="border rounded-lg p-4">
-                                            <div class="flex justify-between items-start">
+                                <!-- Main Content Area -->
+                                <div class="md:col-span-2">
+                                    <!-- Personal Information Section -->
+                                    <div id="personal-info" class="profile-section">
+                                        <h2 class="text-xl font-bold mb-4">Personal Information</h2>
+                                        <form class="space-y-4">
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div>
-                                                    <h3 class="font-medium">Order #12345</h3>
-                                                    <p class="text-sm text-gray-600">Placed on March 15, 2024</p>
+                                                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                                                    <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
                                                 </div>
-                                                <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-green-800">Delivered</span>
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                                                    <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                                </div>
                                             </div>
-                                            <div class="mt-4">
-                                                <p class="text-sm">Total: $1,299.00</p>
-                                                <a href="#" class="text-primary hover:text-primary-dark text-sm">View Details</a>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Email</label>
+                                                <input type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700">Phone</label>
+                                                <input type="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                            </div>
+                                            <div class="flex justify-end">
+                                                <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                                                    Save Changes
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Order History Section -->
+                                    <div id="orders" class="profile-section hidden">
+                                        <h2 class="text-xl font-bold mb-4">Order History</h2>
+                                        <div class="space-y-4">
+                                            <!-- Sample Order -->
+                                            <div class="border rounded-lg p-4">
+                                                <div class="flex justify-between items-start">
+                                                    <div>
+                                                        <h3 class="font-medium">Order #12345</h3>
+                                                        <p class="text-sm text-gray-600">Placed on March 15, 2024</p>
+                                                    </div>
+                                                    <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-green-800">Delivered</span>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <p class="text-sm">Total: $1,299.00</p>
+                                                    <a href="#" class="text-primary hover:text-primary-dark text-sm">View Details</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- Wishlist Section -->
-                                <div id="wishlist" class="profile-section hidden">
-                                    <h2 class="text-xl font-bold mb-4">Wishlist</h2>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <!-- Sample Wishlist Item -->
-                                        <div class="border rounded-lg p-4">
-                                            <img src="../images/products/Luxe Sofa.jpg" alt="Luxe Sofa" class="w-full h-48 object-cover rounded-lg mb-4">
-                                            <h3 class="font-medium">Luxe Sofa</h3>
-                                            <p class="text-primary">$899</p>
-                                            <div class="mt-4 flex space-x-2">
-                                                <button class="flex-1 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                                                    Add to Cart
-                                                </button>
-                                                <button class="px-4 py-2 text-red-600 hover:text-red-800">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Addresses Section -->
-                                <div id="addresses" class="profile-section hidden">
-                                    <h2 class="text-xl font-bold mb-4">Saved Addresses</h2>
-                                    <div class="space-y-4">
-                                        <!-- Sample Address -->
-                                        <div class="border rounded-lg p-4">
-                                            <div class="flex justify-between items-start">
-                                                <div>
-                                                    <h3 class="font-medium">Home</h3>
-                                                    <p class="text-gray-600">123 Main Street, Nairobi, Kenya</p>
-                                                </div>
-                                                <div class="flex space-x-2">
-                                                    <button class="text-primary hover:text-primary-dark">
-                                                        <i class="fas fa-edit"></i>
+                                    <!-- Wishlist Section -->
+                                    <div id="wishlist" class="profile-section hidden">
+                                        <h2 class="text-xl font-bold mb-4">Wishlist</h2>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <!-- Sample Wishlist Item -->
+                                            <div class="border rounded-lg p-4">
+                                                <img src="../images/products/Luxe Sofa.jpg" alt="Luxe Sofa" class="w-full h-48 object-cover rounded-lg mb-4">
+                                                <h3 class="font-medium">Luxe Sofa</h3>
+                                                <p class="text-primary">$899</p>
+                                                <div class="mt-4 flex space-x-2">
+                                                    <button class="flex-1 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                                                        Add to Cart
                                                     </button>
-                                                    <button class="text-red-600 hover:text-red-800">
+                                                    <button class="px-4 py-2 text-red-600 hover:text-red-800">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="w-full px-4 py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary hover:text-primary transition-custom">
-                                            <i class="fas fa-plus mr-2"></i> Add New Address
-                                        </button>
                                     </div>
-                                </div>
 
-                                <!-- Settings Section -->
-                                <div id="settings" class="profile-section hidden">
-                                    <h2 class="text-xl font-bold mb-4">Account Settings</h2>
-                                    <div class="space-y-6">
-                                        <div>
-                                            <h3 class="font-medium mb-2">Change Password</h3>
-                                            <form class="space-y-4">
-                                                <div>
-                                                    <label class="block text-sm font-medium text-gray-700">Current Password</label>
-                                                    <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                    <!-- Addresses Section -->
+                                    <div id="addresses" class="profile-section hidden">
+                                        <h2 class="text-xl font-bold mb-4">Saved Addresses</h2>
+                                        <div class="space-y-4">
+                                            <!-- Sample Address -->
+                                            <div class="border rounded-lg p-4">
+                                                <div class="flex justify-between items-start">
+                                                    <div>
+                                                        <h3 class="font-medium">Home</h3>
+                                                        <p class="text-gray-600">123 Main Street, Nairobi, Kenya</p>
+                                                    </div>
+                                                    <div class="flex space-x-2">
+                                                        <button class="text-primary hover:text-primary-dark">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="text-red-600 hover:text-red-800">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <label class="block text-sm font-medium text-gray-700">New Password</label>
-                                                    <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                                </div>
-                                                <div>
-                                                    <label class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-                                                    <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
-                                                </div>
-                                                <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                                                    Update Password
-                                                </button>
-                                            </form>
+                                            </div>
+                                            <button class="w-full px-4 py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary hover:text-primary transition-custom">
+                                                <i class="fas fa-plus mr-2"></i> Add New Address
+                                            </button>
                                         </div>
-                                        <div>
-                                            <h3 class="font-medium mb-2">Notification Preferences</h3>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center">
-                                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
-                                                    <span class="ml-2">Email notifications</span>
-                                                </label>
-                                                <label class="flex items-center">
-                                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
-                                                    <span class="ml-2">SMS notifications</span>
-                                                </label>
+                                    </div>
+
+                                    <!-- Settings Section -->
+                                    <div id="settings" class="profile-section hidden">
+                                        <h2 class="text-xl font-bold mb-4">Account Settings</h2>
+                                        <div class="space-y-6">
+                                            <div>
+                                                <h3 class="font-medium mb-2">Change Password</h3>
+                                                <form class="space-y-4">
+                                                    <div>
+                                                        <label class="block text-sm font-medium text-gray-700">Current Password</label>
+                                                        <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm font-medium text-gray-700">New Password</label>
+                                                        <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                                                        <input type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                                                    </div>
+                                                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
+                                                        Update Password
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-medium mb-2">Notification Preferences</h3>
+                                                <div class="space-y-2">
+                                                    <label class="flex items-center">
+                                                        <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                                        <span class="ml-2">Email notifications</span>
+                                                    </label>
+                                                    <label class="flex items-center">
+                                                        <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                                        <span class="ml-2">SMS notifications</span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -218,18 +221,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="../script.js" type="module"></script>
-    <script src="../components/loadComponents.js"></script>
-    <script src="../user-menu.js"></script>
-    <script src="../theme.js"></script>
+    <script src="../js/loadNavbar.js"></script>
     <script src="../js/navbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/profile.js"></script>
     <script>
         // Profile Navigation
         document.querySelectorAll('.profile-nav-link').forEach(link => {

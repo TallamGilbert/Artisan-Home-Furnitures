@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (themeToggleMobile) {
         themeToggleMobile.addEventListener('click', toggleTheme);
+        // Update theme icon - mobile
+        const icon = themeToggleMobile.querySelector('i');
+        if (icon) {
+            icon.className = isDark ? 'fas fa-sun text-xl' : 'fas fa-moon text-xl';
+        }
     }
 
     // Check for saved theme preference

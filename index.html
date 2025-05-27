@@ -10,90 +10,16 @@
     <link href="/styles.css" rel="stylesheet">
 </head>
 <body class="font-sans antialiased text-gray-800 bg-background-light">
+    <!-- Header Container -->
+    <div id="header"></div>
+
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
     
     <!-- Navbar Container -->
-    <nav id="navbar" class="fixed w-full bg-white shadow-sm z-50 transition-custom">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="/index.html" class="font-furniture text-2xl font-bold text-primary">Artisan<span class="font-light">Home</span></a>
-                </div>
-                
-                <!-- Navigation Links - Desktop -->
-                <div class="hidden lg:flex items-center space-x-6">
-                    <!-- Main Navigation -->
-                    <div class="flex items-center space-x-6">
-                        <a href="/index.html#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Home</a>
-                        <a href="/index.html#collections" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Collections</a>
-                        <a href="/index.html#store-locator" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Stores</a>
-                        <a href="/index.html#our-story" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">About</a>
-                    </div>
-    
-                    <!-- User Actions -->
-                    <div class="flex items-center space-x-4 ml-4">
-                        <!-- Cart -->
-                        <a href="/cart/cart.html" class="relative text-gray-700 hover:text-primary transition-custom">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                        </a>
-    
-                        <!-- Theme Toggle -->
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-    
-                        <!-- User Menu -->
-                        <div class="relative" id="user-menu">
-                            <button id="user-menu-button" class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-custom focus:outline-none">
-                                <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-200 hover:border-primary transition-custom">
-                                    <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-full w-full object-cover">
-                                </div>
-                            </button>
-                            <!-- Dropdown Menu -->
-                            <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                                <a href="/auth/profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                                <a href="/auth/login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
-                                <a href="/auth/register.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center space-x-4">
-                    <!-- Cart for tablet -->
-                    <a href="/cart/cart.html" class="relative text-gray-700 hover:text-primary transition-custom hidden md:block">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span id="tablet-cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </a>
-                    
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none p-2">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bg-white shadow-md z-40">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
-                <a href="/index.html#collections" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
-                <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>
-                <a href="/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
-                
-                <!-- Theme Toggle Mobile -->
-                <button id="theme-toggle-mobile" class="theme-toggle block w-full text-left px-3 py-2 text-base font-medium rounded-md">
-                    <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
-                </button>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-container"></div>
 
     <!-- Mobile Bottom Navigation -->
     <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
@@ -104,7 +30,7 @@
             </a>
             <a href="/index.html#collections" class="nav-item flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
                 <i class="fas fa-th-large text-xl"></i>
-                <span class="text-xs mt-1">Shop</span>
+                <span class="text-xs mt-1">Collections</span>
             </a>
             <a href="/cart/cart.html" class="nav-item flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom relative">
                 <i class="fas fa-shopping-cart text-xl"></i>
@@ -138,6 +64,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Initialize Cart -->
+    <script src="/js/cart.js"></script>
+    <script src="/js/loadNavbar.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/footer.js"></script>
+    <script>
+        // Initialize cart after all scripts are loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof Cart !== 'undefined') {
+                new Cart();
+            }
+        });
+    </script>
 
     <!-- Featured Products Section (NEW) -->
     <section class="py-16 bg-background-light">
@@ -173,7 +113,7 @@
                             data-description="A classic three-seater with premium upholstery and solid wood frame. Features high-quality fabric, solid hardwood frame, and premium foam cushions for ultimate comfort."
                             data-features='["Premium fabric upholstery", "Solid hardwood frame", "High-density foam cushions", "Removable covers", "Sturdy wooden legs"]'
                             data-colors='["#4A5568", "#2B6CB0", "#2C5282"]'
-                            data-images='["images/products/Luxe Sofa.jpg", "images/products/Luxe Sofa 2.jpg", "images/products/Luxe Sofa 3.jpg", "images/products/Luxe Sofa 4.jpg"]'>
+                            data-images='["/images/products/Luxe Sofa.jpg", "/images/products/Luxe Sofa 2.jpg", "/images/products/Luxe Sofa 3.jpg", "/images/products/Luxe Sofa 4.jpg"]'>
                             Quick View
                         </button>
                     </div>
@@ -205,7 +145,7 @@
                             data-description="Hand-crafted solid wood dining table with natural grain finish. Features premium hardwood construction, hand-carved details, and a rich natural finish. Perfect for family gatherings and elegant dining experiences."
                             data-features='["Solid hardwood construction", "Hand-carved details", "Natural grain finish", "Seats 6-8 people", "Extendable design", "Matching chairs available"]'
                             data-colors='["#8B4513", "#A0522D", "#6B4423"]'
-                            data-images='["images/products/Artisan Dining Table.jpg", "images/products/Artisan Dining Table 2.jpg", "images/products/Artisan Dining Table 3.jpg", "images/products/Artisan Dining Table 4.jpg"]'>
+                            data-images='["/images/products/Artisan Dining Table.jpg"]'>
                             Quick View
                         </button>
                     </div>
@@ -236,7 +176,7 @@
                             data-description="Mid-century inspired lounge chair with ergonomic design. Features premium leather upholstery, solid wood frame, and comfortable cushioning. Perfect for creating a cozy reading nook or stylish living room accent."
                             data-features='["Premium leather upholstery", "Solid wood frame", "Ergonomic design", "High-density foam cushions", "Swivel base", "Easy assembly"]'
                             data-colors='["#B8860B", "#F5F5F5", "#E6E6FA"]'
-                            data-images='["images/products/Modern Lounge Chair.jpg", "images/products/Modern Lounge Chair 2.jpg", "images/products/Modern Lounge Chair 3.jpg", "images/products/Modern Lounge Chair 4.jpg"]'>
+                            data-images='["/images/products/Modern Lounge Chair.jpg", "/images/products/Modern Lounge Chair 2.jpg", "/images/products/Modern Lounge Chair 3.jpg", "/images/products/Modern Lounge Chair 4.jpg"]'>
                             Quick View
                         </button>
                     </div>
@@ -847,67 +787,39 @@
     <div id="footer-container"></div>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
-            <div class="relative">
-                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-                    <!-- Product Images Section -->
-                    <div class="space-y-4">
-                    <div class="relative">
-                        <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
-                            <div class="absolute bottom-4 left-4 flex space-x-2">
-                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
-                            <!-- Thumbnails will be added here dynamically -->
-                        </div>
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-product-name" class="text-xl font-furniture font-medium"></h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-product-image" src="" alt="" class="modal-product-image">
+                    <div class="image-navigation">
+                        <button class="prev-image" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                        <button class="next-image" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                    
-                    <!-- Product Details Section -->
-                    <div class="flex flex-col">
-                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
-                        <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
-                        
-                        <!-- Product Description -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
-                            <p id="modal-product-description" class="text-gray-600"></p>
-                        </div>
-                        
-                        <!-- Product Features -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
-                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
-                                <!-- Features will be added here dynamically -->
-                            </ul>
-                        </div>
-                        
-                        <!-- Color Options -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
-                            <div id="modal-product-colors" class="flex space-x-2">
-                                <!-- Color options will be added here dynamically -->
-                            </div>
-                        </div>
-                        
-                        <!-- Action Buttons -->
-                        <div class="flex space-x-4 mt-auto">
-                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                    <div id="thumbnail-container" class="thumbnail-container"></div>
+                </div>
+                <div class="product-details">
+                    <div id="modal-product-price" class="product-price"></div>
+                    <p id="modal-product-description" class="product-description"></p>
+                    <div class="product-features-container">
+                        <h3 class="text-lg font-medium mb-2">Features</h3>
+                        <ul id="modal-product-features" class="product-features"></ul>
+                    </div>
+                    <div class="color-options-container">
+                        <h3 class="text-lg font-medium mb-2">Available Colors</h3>
+                        <div id="modal-product-colors" class="color-options"></div>
+                    </div>
+                    <div class="modal-actions flex flex-col sm:flex-row gap-4 mt-6">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn flex-1 py-3 px-6 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-custom">
+                            <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                         </button>
-                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
-                                View Full Details
-                            </a>
-                        </div>
+                        <a id="view-more-btn" href="#" class="view-more-btn flex-1 py-3 px-6 text-center border border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-white transition-custom">
+                            View More Details
+                        </a>
                     </div>
                 </div>
             </div>
@@ -919,7 +831,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/loadComponents.js"></script>
-    <script src="/js/cart.js"></script>
     <script src="/js/quick-view.js"></script>
     <script src="/js/script.js" type="module"></script>
     <script src="/js/user-menu.js"></script>

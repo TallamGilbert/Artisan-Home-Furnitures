@@ -4,32 +4,32 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="flex-shrink-0 flex items-center">
-                <a href="/" class="font-furniture text-2xl font-bold text-primary">Artisan<span class="font-light">Home</span></a>
+                <a href="/index.html" class="font-furniture text-2xl font-bold text-primary">Artisan<span class="font-light">Home</span></a>
             </div>
             
             <!-- Navigation Links - Desktop -->
             <div class="hidden md:flex items-center space-x-6">
                 <!-- Main Navigation -->
                 <div class="flex items-center space-x-6">
-                    <a href="/#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Home</a>
-                    <a href="/#collections" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Collections</a>
-                    <a href="/#store-locator" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Stores</a>
-                    <a href="/#our-story" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">About</a>
+                    <a href="/index.html#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Home</a>
+                    <a href="/index.html#store-locator" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Stores</a>
+                    <a href="/index.html#our-story" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">About</a>
+                    <a href="/index.html#contact" class="nav-link text-gray-700 hover:text-primary font-medium transition-custom">Contact</a>
                 </div>
 
                 <!-- User Actions -->
-                <div class="flex items-center space-x-4 ml-4">
+                <div class="flex items-center space-x-4 ml-6">
+                    <!-- Search -->
+                    <button class="text-gray-700 hover:text-primary transition-custom">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
                     <!-- Cart -->
-                    <a href="/cart" class="relative text-gray-700 hover:text-primary transition-custom">
+                    <a href="/cart/cart.html" class="relative text-gray-700 hover:text-primary transition-custom">
                         <i class="fas fa-shopping-cart"></i>
                         <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </a>
-
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-
+                    
                     <!-- User Menu -->
                     <div class="relative" id="user-menu">
                         <button id="user-menu-button" class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-custom focus:outline-none">
@@ -37,11 +37,14 @@
                                 <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-full w-full object-cover">
                             </div>
                         </button>
-                        <!-- Dropdown Menu -->
-                        <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-                            <a href="/auth/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                            <a href="/auth/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
-                            <a href="/auth/register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Register</a>
+                        <!-- User Dropdown Menu -->
+                        <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden">
+                            <a href="/auth/profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="/orders.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Orders</a>
+                            <a href="/wishlist.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Wishlist</a>
+                            <div class="border-t border-gray-200 my-1"></div>
+                            <a href="/auth/login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
+                            <a href="/auth/register.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Register</a>
                         </div>
                     </div>
                 </div>
@@ -49,44 +52,60 @@
             
             <!-- Mobile menu button -->
             <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
+                <button class="md:hidden text-gray-700 hover:text-primary transition-custom" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
     </div>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
-            <a href="/#collections" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
-            <a href="/#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>
-            <a href="/#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
+            <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Stores</a>
+            <a href="/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
+            <a href="/index.html#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Contact</a>
             
-            <!-- Mobile Cart Link -->
-            <a href="/cart" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
-                <i class="fas fa-shopping-cart mr-2"></i>
-                Cart
-                <span id="mobile-cart-count" class="ml-2 bg-primary text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center">0</span>
-            </a>
-            
-            <!-- Mobile User Menu -->
             <div class="mobile-user-menu">
-                <div class="user-profile">
-                    <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200">
-                    <span class="text-base font-medium text-gray-700">Account</span>
-                </div>
-                <a href="/auth/profile" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Profile</a>
-                <a href="/auth/login" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Login</a>
-                <a href="/auth/register" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Register</a>
+                <a href="/auth/profile.html" class="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
+                    <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200 mr-3">
+                    <span>Account</span>
+                </a>
+                <a href="/orders.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">My Orders</a>
+                <a href="/wishlist.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Wishlist</a>
+                <div class="border-t border-gray-200 my-1"></div>
+                <a href="/auth/login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Login</a>
+                <a href="/auth/register.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Register</a>
             </div>
             
-            <button id="theme-toggle-mobile" class="theme-toggle block w-full text-left px-3 py-2 text-base font-medium rounded-md">
-                <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
+            <button id="theme-toggle-mobile" class="theme-toggle w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md mx-auto">
+                <i class="fas fa-moon text-xl"></i>
             </button>
         </div>
     </div>
-</nav> 
+</nav>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-50">
+    <div class="flex justify-around items-center h-16">
+        <a href="/index.html#home" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="/index.html#store-locator" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+            <i class="fas fa-store text-xl"></i>
+            <span class="text-xs mt-1">Stores</span>
+        </a>
+        <a href="/cart/cart.html" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span class="text-xs mt-1">Cart</span>
+        </a>
+        <a href="/auth/profile.html" class="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-custom">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-1">Profile</span>
+        </a>
+    </div>
+</nav>
+
+<script src="/js/navbar.js"></script> 

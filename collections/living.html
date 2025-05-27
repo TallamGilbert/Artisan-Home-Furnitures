@@ -25,159 +25,176 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Coffee Table -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
-                    <img src="../images/products/coffee-table.jpg" alt="Modern Coffee Table" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Coffee Table</h3>
-                    <p class="text-gray-600 mb-4">Contemporary coffee table with clean lines and ample storage.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">KSh 35,000 <span class="text-sm text-gray-500 line-through">KSh 45,000</span></div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="coffee-table"
-                        data-name="Modern Coffee Table"
-                        data-price="35000"
-                        data-description="Contemporary coffee table with clean lines and ample storage. Perfect for modern living spaces."
-                        data-features="Storage shelf, Tempered glass top, Durable construction, Easy assembly"
-                        data-colors="Walnut, White, Black"
-                        data-images="images/coffee-table.jpg,images/coffee-table-2.jpg,images/coffee-table-3.jpg">
-                        Quick View
+                    <img src="../images/products/coffee-table.jpg" alt="Coffee Table" class="w-full h-64 object-cover">
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="coffee-table"
+                            data-name="Modern Coffee Table"
+                            data-price="45000"
+                            data-description="A sleek and modern coffee table that combines style with functionality. Perfect for your living room."
+                            data-features='["Solid wood construction", "Tempered glass top", "Hidden storage compartment", "Easy assembly"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/coffee-table.jpg", "../images/products/coffee-table-2.jpg", "../images/products/coffee-table-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern Coffee Table</h3>
+                    <p class="text-primary font-medium mb-4">KSh 45,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="coffee-table.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- TV Stand -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
-                    <img src="../images/products/tv-stand.jpg" alt="Entertainment Center" class="w-full h-64 object-cover">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Entertainment Center</h3>
-                    <p class="text-gray-600 mb-4">Spacious entertainment center with cable management and ample storage.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">KSh 55,000 <span class="text-sm text-gray-500 line-through">KSh 65,000</span></div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="tv-stand"
-                        data-name="Entertainment Center"
-                        data-price="55000"
-                        data-description="Spacious entertainment center with cable management and ample storage. Perfect for organizing your media equipment."
-                        data-features="Cable management, Adjustable shelves, LED lighting, Storage drawers"
-                        data-colors="Espresso, White, Gray"
-                        data-images="images/tv-stand.jpg,images/tv-stand-2.jpg,images/tv-stand-3.jpg">
-                        Quick View
+                    <img src="../images/products/tv-stand.jpg" alt="TV Stand" class="w-full h-64 object-cover">
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="tv-stand"
+                            data-name="Modern TV Stand"
+                            data-price="55000"
+                            data-description="A stylish TV stand with ample storage space for your entertainment needs."
+                            data-features='["Cable management system", "Adjustable shelves", "Built-in power strip", "Easy assembly"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/tv-stand.jpg", "../images/products/tv-stand-2.jpg", "../images/products/tv-stand-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern TV Stand</h3>
+                    <p class="text-primary font-medium mb-4">KSh 55,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="tv-stand.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Side Table -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
-                    <img src="../images/products/side-table.jpg" alt="Accent Side Table" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Accent Side Table</h3>
-                    <p class="text-gray-600 mb-4">Versatile side table with a modern design.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">KSh 25,000 <span class="text-sm text-gray-500 line-through">KSh 32,000</span></div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="side-table"
-                        data-name="Accent Side Table"
-                        data-price="25000"
-                        data-description="Versatile side table with a modern design. Perfect for complementing your living room furniture."
-                        data-features="Compact size, Sturdy construction, Easy to move, Multiple uses"
-                        data-colors="Black, White, Gold"
-                        data-images="images/side-table.jpg,images/side-table-2.jpg,images/side-table-3.jpg">
-                        Quick View
+                    <img src="../images/products/side-table.jpg" alt="Side Table" class="w-full h-64 object-cover">
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="side-table"
+                            data-name="Contemporary Side Table"
+                            data-price="25000"
+                            data-description="A versatile side table that complements any living space."
+                            data-features='["Compact design", "Sturdy construction", "Easy to move", "Modern finish"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/side-table.jpg", "../images/products/side-table-2.jpg", "../images/products/side-table-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Contemporary Side Table</h3>
+                    <p class="text-primary font-medium mb-4">KSh 25,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="side-table.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Console Table -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/console-table.jpg" alt="Console Table" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Console Table</h3>
-                    <p class="text-gray-600 mb-4">Elegant console table with built-in storage and mirror.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">KSh 84,850 <span class="text-sm text-gray-500 line-through">KSh 104,850</span></div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="console-table"
-                        data-name="Console Table"
-                        data-price="84850"
-                        data-description="Elegant console table with built-in storage and mirror. Perfect for entryways and living rooms."
-                        data-features='["Built-in mirror", "Storage drawer", "Shelf space", "Durable construction", "Easy assembly", "Modern design"]'
-                        data-colors='["#8B4513", "#FFFFFF", "#808080"]'
-                        data-images='["../images/products/console-table.jpg", "../images/products/console-table-2.jpg", "../images/products/console-table-3.jpg"]'>
-                        Quick View
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="console-table"
+                            data-name="Elegant Console Table"
+                            data-price="40000"
+                            data-description="A sophisticated console table perfect for entryways and living rooms."
+                            data-features='["Slim profile", "Hidden storage", "Durable materials", "Easy assembly"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/console-table.jpg", "../images/products/console-table-2.jpg", "../images/products/console-table-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Elegant Console Table</h3>
+                    <p class="text-primary font-medium mb-4">KSh 40,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="console-table.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Media Cabinet -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/media-cabinet.jpg" alt="Media Cabinet" class="w-full h-64 object-cover">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Media Cabinet</h3>
-                    <p class="text-gray-600 mb-4">Modern media cabinet with cable management and adjustable shelves.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">$799</div>
-                        <div class="text-sm text-gray-500 line-through">$999</div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="media-cabinet"
-                        data-name="Media Cabinet"
-                        data-price="799"
-                        data-description="Modern media cabinet with cable management and adjustable shelves. Perfect for organizing your entertainment equipment."
-                        data-features='["Cable management", "Adjustable shelves", "Glass doors", "Storage drawers", "LED lighting", "Easy assembly"]'
-                        data-colors='["#8B4513", "#FFFFFF", "#808080"]'
-                        data-images='["../images/products/media-cabinet.jpg", "../images/products/media-cabinet-2.jpg", "../images/products/media-cabinet-3.jpg"]'>
-                        Quick View
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="media-cabinet"
+                            data-name="Modern Media Cabinet"
+                            data-price="65000"
+                            data-description="A spacious media cabinet with smart storage solutions."
+                            data-features='["Cable management", "Adjustable shelves", "Soft-close doors", "Built-in power strip"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/media-cabinet.jpg", "../images/products/media-cabinet-2.jpg", "../images/products/media-cabinet-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern Media Cabinet</h3>
+                    <p class="text-primary font-medium mb-4">KSh 65,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="media-cabinet.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Accent Chair -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/accent-chair.jpg" alt="Accent Chair" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Accent Chair</h3>
-                    <p class="text-gray-600 mb-4">Stylish accent chair with premium fabric and comfortable design.</p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-xl font-medium text-primary">KSh 89,850 <span class="text-sm text-gray-500 line-through">KSh 109,850</span></div>
-                    </div>
-                    <button class="quick-view-btn w-full py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom" 
-                        data-product="accent-chair"
-                        data-name="Accent Chair"
-                        data-price="89850"
-                        data-description="Stylish accent chair with premium fabric and comfortable design. Perfect for adding a pop of color to your living room."
-                        data-features='["Premium fabric", "Comfortable design", "Sturdy frame", "Easy to clean", "Modern style", "Multiple color options"]'
-                        data-colors='["#8B4513", "#FFFFFF", "#808080"]'
-                        data-images='["../images/products/accent-chair.jpg", "../images/products/accent-chair-2.jpg", "../images/products/accent-chair-3.jpg"]'>
-                        Quick View
+                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                            data-product="accent-chair"
+                            data-name="Stylish Accent Chair"
+                            data-price="35000"
+                            data-description="A comfortable and stylish accent chair to enhance your living space."
+                            data-features='["Premium upholstery", "Sturdy frame", "Comfortable cushioning", "Easy to clean"]'
+                            data-colors='["#8B4513", "#000000", "#FFFFFF"]'
+                            data-images='["../images/products/accent-chair.jpg", "../images/products/accent-chair-2.jpg", "../images/products/accent-chair-3.jpg"]'>
+                        <i class="fas fa-eye"></i>
                     </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Stylish Accent Chair</h3>
+                    <p class="text-primary font-medium mb-4">KSh 35,000</p>
+                    <div class="flex justify-between items-center">
+                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
+                            Add to Cart
+                        </button>
+                        <a href="accent-chair.html" class="text-primary hover:text-primary-dark transition-custom">
+                            View Details
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -255,8 +272,11 @@
     <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="../js/navbar.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/quick-view.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/loadNavbar.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 </html> 

@@ -60,34 +60,45 @@
     </div>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/src/pages/index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
-            <a href="/collections/index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
-            <a href="/src/pages/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Find a Store</a>
-            <a href="/src/pages/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
-            
-            <!-- Mobile Cart Link -->
-            <a href="/cart/cart.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
-                <i class="fas fa-shopping-cart mr-2"></i>
-                Cart
-                <span id="mobile-cart-count" class="ml-2 bg-primary text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center">0</span>
-            </a>
-            
-            <!-- Mobile User Menu -->
-            <div class="mobile-user-menu">
-                <div class="user-profile">
-                    <img src="/src/assets/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200">
-                    <span class="text-base font-medium text-gray-700">Account</span>
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
+            <div class="relative">
+                <button class="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md flex items-center justify-between">
+                    Collections
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div class="pl-4 space-y-1">
+                    <a href="/collections/living.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Living Room</a>
+                    <a href="/collections/bedroom.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Bedroom</a>
+                    <a href="/collections/dining.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Dining Room</a>
+                    <a href="/collections/office.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Office</a>
+                    <a href="/collections/outdoor.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Outdoor</a>
+                    <a href="/collections/storage.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Storage</a>
                 </div>
-                <a href="/src/pages/profile.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Profile</a>
+            </div>
+            <a href="/index.html#custom-designs" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Custom Orders</a>
+            <a href="/index.html#store-locator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Stores</a>
+            <a href="/index.html#our-story" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About</a>
+            <a href="/index.html#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Contact</a>
+            
+            <div class="mobile-user-menu">
+                <a href="/auth/profile.html" class="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">
+                    <img src="/images/default-avatar.jpeg" alt="User Profile" class="h-8 w-8 rounded-full border-2 border-gray-200 mr-3">
+                    <span>Account</span>
+                </a>
+                <a href="/orders.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">My Orders</a>
+                <a href="/wishlist.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Wishlist</a>
+                <div class="border-t border-gray-200 my-1"></div>
                 <a href="/auth/login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Login</a>
                 <a href="/auth/register.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Register</a>
             </div>
             
-            <button id="theme-toggle-mobile" class="theme-toggle block w-full text-left px-3 py-2 text-base font-medium rounded-md">
-                <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
+            <button id="theme-toggle-mobile" class="theme-toggle block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md" aria-label="Toggle dark mode">
+                <i class="fas fa-moon text-xl"></i>
             </button>
         </div>
     </div>
-</nav> 
+</nav>
+
+<!-- Mobile Bottom Navigation --> 
