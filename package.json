@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node update-paths.js",
+    "build": "vite build && node update-paths.js && npm run copy-js",
     "preview": "vite preview",
     "test": "jest",
     "lint": "eslint src/**/*.js",
-    "format": "prettier --write \"src/**/*.{js,css,html}\""
+    "format": "prettier --write \"src/**/*.{js,css,html}\"",
+    "copy-js": "node scripts/copy-js.js"
   },
   "engines": {
     "node": ">=18.0.0"

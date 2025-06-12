@@ -29,9 +29,9 @@ export default defineConfig({
       ],
       output: {
         // Ensure JavaScript files are properly handled
-        entryFileNames: 'js/[name].[hash].js',
-        chunkFileNames: 'js/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]'
+        entryFileNames: 'js/[name].js',
+        chunkFileNames: 'js/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
       }
     },
     // Ensure proper handling of static assets
