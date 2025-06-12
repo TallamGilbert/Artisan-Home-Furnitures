@@ -25,24 +25,7 @@ if (typeof window.Cart === 'undefined') {
 
         // Initialize event listeners
         initializeEventListeners() {
-            // Add to cart buttons
-            document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('add-to-cart-btn')) {
-                    const modal = document.getElementById('product-modal');
-                    if (!modal) return;
-                    
-                    const product = {
-                        id: modal.dataset.productId,
-                        name: document.getElementById('modal-product-name').textContent,
-                        price: parseFloat(document.getElementById('modal-product-price').textContent.replace('KSh ', '').replace(',', '')),
-                        images: JSON.parse(modal.dataset.images || '[]'),
-                        selectedOptions: {
-                            color: modal.dataset.selectedColor || 'Default'
-                        }
-                    };
-                    this.addItem(product);
-                }
-            });
+            // No need for add to cart button listener here as it's handled in quick-view.js
         }
 
         // Add item to cart
@@ -55,12 +38,30 @@ if (typeof window.Cart === 'undefined') {
             if (existingItem) {
                 existingItem.quantity += quantity;
             } else {
+                // Get the first image from the product's images array
+                let imagePath = product.images && product.images.length > 0 ? product.images[0] : '';
+                
+                // If the image path is relative (starts with ../), convert it to absolute
+                if (imagePath && imagePath.startsWith('../')) {
+                    imagePath = imagePath.replace('../', '/');
+                }
+                
+                // If the image path doesn't start with /, add it
+                if (imagePath && !imagePath.startsWith('/')) {
+                    imagePath = '/' + imagePath;
+                }
+
+                // If no image is available, use the default avatar
+                if (!imagePath) {
+                    imagePath = '/images/default-avatar.jpeg';
+                }
+
                 this.items.push({
                     id: product.id,
                     name: product.name,
                     price: product.price,
                     quantity: quantity,
-                    image: product.images[0],
+                    image: imagePath,
                     selectedOptions: selectedOptions
                 });
             }
@@ -182,7 +183,7 @@ if (typeof window.Cart === 'undefined') {
             // Render cart items
             cartItems.innerHTML = this.items.map((item, index) => `
                 <div class="bg-white rounded-lg shadow-md p-4 flex items-center">
-                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded-md">
+                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded-md" onerror="this.src='/images/default-avatar.jpeg'">
                     <div class="ml-4 flex-grow">
                         <h3 class="text-lg font-medium text-primary-dark">${item.name}</h3>
                         <p class="text-gray-600">KSh ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
@@ -190,9 +191,9 @@ if (typeof window.Cart === 'undefined') {
                             `<p class="text-sm text-gray-500">${key}: ${value}</p>`
                         ).join('')}
                         <div class="flex items-center mt-2">
-                            <button class="quantity-btn" onclick="cart.updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                            <button class="quantity-btn px-2 py-1 border border-gray-300 rounded hover:bg-gray-100" onclick="cart.updateQuantity(${index}, ${item.quantity - 1})">-</button>
                             <span class="mx-2">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="cart.updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                            <button class="quantity-btn px-2 py-1 border border-gray-300 rounded hover:bg-gray-100" onclick="cart.updateQuantity(${index}, ${item.quantity + 1})">+</button>
                         </div>
                     </div>
                     <button class="text-red-500 hover:text-red-700 ml-4" onclick="cart.removeItem(${index})">
@@ -238,7 +239,7 @@ if (typeof window.Cart === 'undefined') {
             // Render order items
             orderItems.innerHTML = this.items.map(item => `
                 <div class="flex items-center space-x-4">
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md" onerror="this.src='/images/default-avatar.jpeg'">
                     <div class="flex-grow">
                         <h4 class="text-sm font-medium text-primary-dark">${item.name}</h4>
                         <p class="text-sm text-gray-600">KSh ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} x ${item.quantity}</p>
@@ -254,10 +255,8 @@ if (typeof window.Cart === 'undefined') {
         }
     }
 
-    // Initialize cart only if it hasn't been initialized
-    if (!window.cart) {
-        new Cart();
-    }
+    // Initialize cart when the script loads
+    new Cart();
 }
 
 // Add event listener for checkout button

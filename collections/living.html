@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Living Room Collection | Artisan Home</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link href="../styles.css" rel="stylesheet">
+    <title>Living Room Collection - Artisan Home Furnitures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
-<body class="font-sans antialiased text-gray-800 bg-background-light">
+<body class="bg-background-light">
     <!-- Navbar Container -->
     <div id="navbar-container"></div>
 
@@ -21,14 +21,20 @@
         </div>
     </header>
 
-    <!-- Products Grid -->
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Collection Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Coffee Table -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/coffee-table.jpg" alt="Coffee Table" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Coffee Table</h3>
+                    <p class="text-gray-600 mb-4">A sleek and modern coffee table that combines style with functionality.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 45,000 <span class="text-sm text-gray-500 line-through">KSh 55,000</span></div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="coffee-table"
                             data-name="Modern Coffee Table"
                             data-price="45000"
@@ -36,28 +42,23 @@
                             data-features='["Solid wood construction", "Tempered glass top", "Hidden storage compartment", "Easy assembly"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/coffee-table.jpg", "../images/products/coffee-table-2.jpg", "../images/products/coffee-table-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern Coffee Table</h3>
-                    <p class="text-primary font-medium mb-4">KSh 45,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="coffee-table.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- TV Stand -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/tv-stand.jpg" alt="TV Stand" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern TV Stand</h3>
+                    <p class="text-gray-600 mb-4">A stylish TV stand with ample storage space for your entertainment needs.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 55,000</div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="tv-stand"
                             data-name="Modern TV Stand"
                             data-price="55000"
@@ -65,28 +66,23 @@
                             data-features='["Cable management system", "Adjustable shelves", "Built-in power strip", "Easy assembly"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/tv-stand.jpg", "../images/products/tv-stand-2.jpg", "../images/products/tv-stand-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern TV Stand</h3>
-                    <p class="text-primary font-medium mb-4">KSh 55,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="tv-stand.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Side Table -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/side-table.jpg" alt="Side Table" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Contemporary Side Table</h3>
+                    <p class="text-gray-600 mb-4">A versatile side table that complements any living space.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 25,000</div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="side-table"
                             data-name="Contemporary Side Table"
                             data-price="25000"
@@ -94,28 +90,23 @@
                             data-features='["Compact design", "Sturdy construction", "Easy to move", "Modern finish"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/side-table.jpg", "../images/products/side-table-2.jpg", "../images/products/side-table-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Contemporary Side Table</h3>
-                    <p class="text-primary font-medium mb-4">KSh 25,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="side-table.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Console Table -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/console-table.jpg" alt="Console Table" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Elegant Console Table</h3>
+                    <p class="text-gray-600 mb-4">A sophisticated console table perfect for entryways and living rooms.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 40,000</div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="console-table"
                             data-name="Elegant Console Table"
                             data-price="40000"
@@ -123,28 +114,23 @@
                             data-features='["Slim profile", "Hidden storage", "Durable materials", "Easy assembly"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/console-table.jpg", "../images/products/console-table-2.jpg", "../images/products/console-table-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Elegant Console Table</h3>
-                    <p class="text-primary font-medium mb-4">KSh 40,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="console-table.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Media Cabinet -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/media-cabinet.jpg" alt="Media Cabinet" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Media Cabinet</h3>
+                    <p class="text-gray-600 mb-4">A spacious media cabinet with smart storage solutions.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 65,000 <span class="text-sm text-gray-500 line-through">KSh 75,000</span></div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="media-cabinet"
                             data-name="Modern Media Cabinet"
                             data-price="65000"
@@ -152,28 +138,23 @@
                             data-features='["Cable management", "Adjustable shelves", "Soft-close doors", "Built-in power strip"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/media-cabinet.jpg", "../images/products/media-cabinet-2.jpg", "../images/products/media-cabinet-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Modern Media Cabinet</h3>
-                    <p class="text-primary font-medium mb-4">KSh 65,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="media-cabinet.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Accent Chair -->
-            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="relative">
                     <img src="../images/products/accent-chair.jpg" alt="Accent Chair" class="w-full h-64 object-cover">
-                    <button class="quick-view-btn absolute top-2 right-2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md"
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Stylish Accent Chair</h3>
+                    <p class="text-gray-600 mb-4">A comfortable and stylish accent chair to enhance your living space.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 35,000</div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium hover:bg-primary hover:text-white transition-custom"
                             data-product="accent-chair"
                             data-name="Stylish Accent Chair"
                             data-price="35000"
@@ -181,19 +162,8 @@
                             data-features='["Premium upholstery", "Sturdy frame", "Comfortable cushioning", "Easy to clean"]'
                             data-colors='["#8B4513", "#000000", "#FFFFFF"]'
                             data-images='["../images/products/accent-chair.jpg", "../images/products/accent-chair-2.jpg", "../images/products/accent-chair-3.jpg"]'>
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-medium text-gray-800 mb-2">Stylish Accent Chair</h3>
-                    <p class="text-primary font-medium mb-4">KSh 35,000</p>
-                    <div class="flex justify-between items-center">
-                        <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                            Quick View
                         </button>
-                        <a href="accent-chair.html" class="text-primary hover:text-primary-dark transition-custom">
-                            View Details
-                        </a>
                     </div>
                 </div>
             </div>
@@ -201,67 +171,39 @@
     </div>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
-            <div class="relative">
-                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-                    <!-- Product Images Section -->
-                    <div class="space-y-4">
-                    <div class="relative">
-                        <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
-                            <div class="absolute bottom-4 left-4 flex space-x-2">
-                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
-                            <!-- Thumbnails will be added here dynamically -->
-                        </div>
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-product-name" class="text-xl font-furniture font-medium"></h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-product-image" src="" alt="" class="modal-product-image">
+                    <div class="image-navigation">
+                        <button class="prev-image" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                        <button class="next-image" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                    
-                    <!-- Product Details Section -->
-                    <div class="flex flex-col">
-                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
-                            <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
-                        
-                        <!-- Product Description -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
-                            <p id="modal-product-description" class="text-gray-600"></p>
-                        </div>
-
-                        <!-- Product Features -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
-                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
-                                <!-- Features will be added here dynamically -->
-                            </ul>
-                        </div>
-                        
-                        <!-- Color Options -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
-                            <div id="modal-product-colors" class="flex space-x-2">
-                                <!-- Color options will be added here dynamically -->
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex space-x-4 mt-auto">
-                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                            Add to Cart
+                    <div id="thumbnail-container" class="thumbnail-container"></div>
+                </div>
+                <div class="product-details">
+                    <div id="modal-product-price" class="product-price"></div>
+                    <p id="modal-product-description" class="product-description"></p>
+                    <div class="product-features-container">
+                        <h3 class="text-lg font-medium mb-2">Features</h3>
+                        <ul id="modal-product-features" class="product-features"></ul>
+                    </div>
+                    <div class="color-options-container">
+                        <h3 class="text-lg font-medium mb-2">Available Colors</h3>
+                        <div id="modal-product-colors" class="color-options"></div>
+                    </div>
+                    <div class="modal-actions flex flex-col sm:flex-row gap-4 mt-6">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn flex-1 py-3 px-6 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-custom">
+                            <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                         </button>
-                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
-                                View Full Details
-                            </a>
-                        </div>
+                        <a id="view-more-btn" href="#" class="view-more-btn flex-1 py-3 px-6 text-center border border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-white transition-custom">
+                            View More Details
+                        </a>
                     </div>
                 </div>
             </div>

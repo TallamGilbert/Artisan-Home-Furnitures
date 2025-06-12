@@ -28,9 +28,6 @@
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/desk.jpg" alt="Desk" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
-                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Executive Desk</h3>
@@ -79,9 +76,6 @@
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/bookshelf.jpg" alt="Bookshelf" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
-                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Bookshelf</h3>
@@ -106,9 +100,6 @@
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/computer-stand.jpg" alt="Computer Stand" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">New</span>
-                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Electric Standing Desk</h3>
@@ -157,9 +148,6 @@
             <div class="bg-white rounded-lg overflow-hidden shadow-md">
                 <div class="relative">
                     <img src="../images/products/office-storage.jpg" alt="Office Storage" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Sale</span>
-                    </div>
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Conference Table</h3>
@@ -183,67 +171,39 @@
     </div>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
-            <div class="relative">
-                <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-                    <!-- Product Images Section -->
-                    <div class="space-y-4">
-                        <div class="relative">
-                            <img id="modal-product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded-lg">
-                            <div class="absolute bottom-4 left-4 flex space-x-2">
-                                <button class="image-nav-btn prev-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="image-nav-btn next-image bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="thumbnail-container" class="flex space-x-2 overflow-x-auto pb-2">
-                            <!-- Thumbnails will be added here dynamically -->
-                        </div>
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-product-name" class="text-xl font-furniture font-medium"></h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-product-image" src="" alt="" class="modal-product-image">
+                    <div class="image-navigation">
+                        <button class="prev-image" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                        <button class="next-image" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                    
-                    <!-- Product Details Section -->
-                    <div class="flex flex-col">
-                        <h2 id="modal-product-name" class="text-2xl font-furniture font-medium text-primary-dark mb-3"></h2>
-                        <div id="modal-product-price" class="text-xl font-medium text-primary mb-4"></div>
-                        
-                        <!-- Product Description -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Description</h3>
-                            <p id="modal-product-description" class="text-gray-600"></p>
-                        </div>
-                        
-                        <!-- Product Features -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Features</h3>
-                            <ul id="modal-product-features" class="list-disc list-inside text-gray-600 space-y-1">
-                                <!-- Features will be added here dynamically -->
-                            </ul>
-                        </div>
-                        
-                        <!-- Color Options -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium text-gray-800 mb-2">Available Colors</h3>
-                            <div id="modal-product-colors" class="flex space-x-2">
-                                <!-- Color options will be added here dynamically -->
-                            </div>
-                        </div>
-                        
-                        <!-- Action Buttons -->
-                        <div class="flex space-x-4 mt-auto">
-                            <button class="add-to-cart-btn flex-1 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition-custom">
-                                Add to Cart
-                            </button>
-                            <a href="#" id="view-more-btn" class="flex-1 py-3 border border-primary text-primary text-center rounded-md hover:bg-primary hover:text-white transition-custom">
-                                View Full Details
-                            </a>
-                        </div>
+                    <div id="thumbnail-container" class="thumbnail-container"></div>
+                </div>
+                <div class="product-details">
+                    <div id="modal-product-price" class="product-price"></div>
+                    <p id="modal-product-description" class="product-description"></p>
+                    <div class="product-features-container">
+                        <h3 class="text-lg font-medium mb-2">Features</h3>
+                        <ul id="modal-product-features" class="product-features"></ul>
+                    </div>
+                    <div class="color-options-container">
+                        <h3 class="text-lg font-medium mb-2">Available Colors</h3>
+                        <div id="modal-product-colors" class="color-options"></div>
+                    </div>
+                    <div class="modal-actions flex flex-col sm:flex-row gap-4 mt-6">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn flex-1 py-3 px-6 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-custom">
+                            <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                        </button>
+                        <a id="view-more-btn" href="#" class="view-more-btn flex-1 py-3 px-6 text-center border border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-white transition-custom">
+                            View More Details
+                        </a>
                     </div>
                 </div>
             </div>

@@ -137,26 +137,15 @@ class ProductModalService {
   }
 
   updateThumbnails() {
-    const thumbnailContainer = document.getElementById('thumbnail-container');
-    if (!thumbnailContainer) return;
+    const container = document.getElementById('thumbnail-container');
+    if (!container || !this.currentProduct) return;
 
-    thumbnailContainer.innerHTML = '';
-    
-    this.productImages.forEach((image, index) => {
-      const thumbnail = document.createElement('img');
-      thumbnail.src = image;
-      thumbnail.alt = `${this.currentProduct.name} - View ${index + 1}`;
-      thumbnail.classList.add('thumbnail');
-      if (index === this.currentImageIndex) {
-        thumbnail.classList.add('active');
-      }
-      thumbnail.addEventListener('click', () => {
-        this.currentImageIndex = index;
-        this.updateProductImage();
-        this.updateThumbnails();
-      });
-      thumbnailContainer.appendChild(thumbnail);
-    });
+    container.innerHTML = this.currentProduct.images.map((image, index) => `
+      <img src="${image}" 
+           alt="Thumbnail ${index + 1}" 
+           class="w-12 h-12 object-cover rounded cursor-pointer transition-all duration-200 ${index === this.currentImageIndex ? 'ring-2 ring-primary opacity-100' : 'opacity-50 hover:opacity-75'}"
+           onclick="productModalService.setCurrentImage(${index})">
+    `).join('');
   }
 
   showPreviousImage() {
@@ -179,59 +168,19 @@ class ProductModalService {
       id: this.currentProduct.id,
       name: this.currentProduct.name,
       price: this.currentProduct.price,
-      color: selectedColor,
-      image: this.productImages[this.currentImageIndex],
-      quantity: 1
+      images: [this.productImages[this.currentImageIndex]],
+      selectedOptions: {
+        color: selectedColor
+      }
     };
 
-    // Get existing cart items
-    let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    
-    // Check if product already exists in cart
-    const existingItemIndex = cartItems.findIndex(item => 
-      item.id === productToAdd.id && item.color === productToAdd.color
-    );
-
-    if (existingItemIndex > -1) {
-      // Update quantity if product exists
-      cartItems[existingItemIndex].quantity += 1;
-    } else {
-      // Add new product if it doesn't exist
-      cartItems.push(productToAdd);
+    // Use the Cart class to add the item
+    if (window.cart) {
+      window.cart.addItem(productToAdd, 1, productToAdd.selectedOptions);
     }
 
-    // Save updated cart
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-    // Update cart count
-    const cartCount = document.getElementById('cart-count');
-    const tabletCartCount = document.getElementById('tablet-cart-count');
-    const mobileCartCount = document.getElementById('mobile-cart-count');
-    
-    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    
-    if (cartCount) cartCount.textContent = totalItems;
-    if (tabletCartCount) tabletCartCount.textContent = totalItems;
-    if (mobileCartCount) mobileCartCount.textContent = totalItems;
-
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-md shadow-lg z-50 animate__animated animate__fadeIn';
-    successMessage.innerHTML = `
-      <div class="flex items-center">
-        <i class="fas fa-check-circle mr-2"></i>
-        <span>Added to cart successfully!</span>
-      </div>
-    `;
-    document.body.appendChild(successMessage);
-
-    // Remove success message after 3 seconds
-    setTimeout(() => {
-      successMessage.classList.add('animate__fadeOut');
-      setTimeout(() => {
-        document.body.removeChild(successMessage);
-      }, 500);
-    }, 3000);
+    // Close the modal
+    this.closeModal();
   }
 
   openModal() {
