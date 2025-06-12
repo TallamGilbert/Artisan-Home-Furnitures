@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const navbarContainer = document.getElementById('navbar-container');
         if (navbarContainer) {
-            const response = await fetch('../components/navbar.html');
+            const response = await fetch('/components/navbar.html');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
