@@ -21,6 +21,11 @@
   status = 200
 
 [[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+[[redirects]]
   from = "/css/*"
   to = "/css/:splat"
   status = 200
@@ -38,7 +43,7 @@
   status = 200
 
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = "dist"
 
 [build.environment]
