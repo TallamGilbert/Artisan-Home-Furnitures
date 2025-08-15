@@ -6,7 +6,7 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 export default defineConfig({
   root: '.',
   build: {
-    outDir: 'dist',
+    outDir: 'public',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
