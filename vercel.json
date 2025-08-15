@@ -6,18 +6,18 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "source": "/images/:match*",
+      "destination": "/images/:match*"
     },
     {
-      "src": "/collections/(.*)",
-      "dest": "/collections/$1"
+      "source": "/collections/:match*",
+      "destination": "/collections/:match*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/:match*",
+      "destination": "/:match*"
     }
   ],
   "headers": [
