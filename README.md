@@ -192,6 +192,33 @@ For support, email support@artisanhome.com or create an issue in the repository.
 - Bootstrap for components
 - Animate.css for animations
 
+To add more products to each section, use this html structure and then change the data 
+<!-- Collection Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Dining Set 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="relative">
+                    <img src="../images/products/Modern Dining Set.jpg" alt="Modern Dining Set" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-furniture font-medium text-primary-dark mb-2">Modern Dining Set</h3>
+                    <p class="text-gray-600 mb-4">Contemporary 6-seater dining set with glass top and premium upholstery.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-medium text-primary">KSh 95,000</div>
+                        <button class="quick-view-btn px-4 py-2 rounded-md bg-accent-dark text-primary-dark font-medium  transition-custom"
+                            data-product="modern-dining-set"
+                            data-name="Modern Dining Set"
+                            data-price="95000"
+                            data-description="Contemporary dining set with glass top table and upholstered chairs. Perfect for modern homes and entertaining guests."
+                            data-features='["Glass top table (72\" x 36\")", "6 upholstered chairs", "Sturdy metal frame", "Tempered glass top", "Comfortable seating", "Easy to clean"]'
+                            data-colors='["#4A5568", "#2B6CB0", "#2C5282"]'
+                            data-images='["../images/products/Modern Dining Set.jpg", "../images/products/Modern Dining Set 2.jpg", "../images/products/Modern Dining Set 3.jpg", "../images/products/Modern Dining Set 4.jpg"]'>
+                            Quick View
+                        </button>
+                    </div>
+                </div>
+            </div>
 
 
 
