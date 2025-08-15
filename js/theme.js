@@ -1,26 +1,13 @@
-// Theme handling functionality
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Theme script loaded');
-    
     // Get theme toggle buttons
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
     // Function to set theme
     function setTheme(isDark) {
-        console.log('Setting theme:', isDark ? 'dark' : 'light');
-        
-        // Add dark class to body
-        if (isDark) {
-            document.body.classList.add('dark-theme');
-        } else {
-            document.body.classList.remove('dark-theme');
-        }
-        
-        // Save to localStorage
+        document.body.classList.toggle('dark-theme', isDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
-        // Update theme toggle icons
         const themeIcons = document.querySelectorAll('.theme-toggle i');
         themeIcons.forEach(icon => {
             icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
@@ -28,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to toggle theme
-    function toggleTheme(event) {
+    function toggleTheme() {
         const isDark = document.body.classList.contains('dark-theme');
         setTheme(!isDark);
     }
@@ -37,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
-    
     if (themeToggleMobile) {
         themeToggleMobile.addEventListener('click', toggleTheme);
     }
@@ -58,4 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
             setTheme(e.matches);
         }
     });
-}); 
+});

@@ -21,17 +21,6 @@ export default defineConfig({
         storage: resolve(__dirname, 'collections/storage.html'),
         office: resolve(__dirname, 'collections/office.html'),
         outdoor: resolve(__dirname, 'collections/outdoor.html')
-      },
-      external: [
-        // External dependencies
-        'bootstrap',
-        'font-awesome'
-      ],
-      output: {
-        // Ensure JavaScript files are properly handled
-        entryFileNames: 'js/[name].js',
-        chunkFileNames: 'js/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
       }
     },
     // Ensure proper handling of static assets
@@ -45,7 +34,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './'),
-      '@js': resolve(__dirname, './js'),
+      '@js': resolve(__dirname, './public/js'),
       '@components': resolve(__dirname, './components'),
       '@images': resolve(__dirname, './images')
     }
