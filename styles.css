@@ -733,9 +733,6 @@ body {
     transform: none;
 }
 
-.quick-view-btn:hover {
-    background-color: white !important;
-}
 
 .modal-actions {
     margin-top: 2rem;
