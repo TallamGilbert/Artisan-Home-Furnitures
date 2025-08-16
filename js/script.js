@@ -88,25 +88,38 @@ if (chatButton) {
 }
 
 // Testimonial Slider
+// Testimonial Slider
 function initializeTestimonialSlider() {
     const wrapper = document.getElementById('testimonial-wrapper');
     const cards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.testimonial-dot');
 
-    // Check if all required elements exist
     if (!wrapper || cards.length === 0 || dots.length === 0) {
         console.warn('Testimonial slider elements not found. Skipping initialization.');
         return;
     }
 
     let currentIndex = 0;
-    const interval = 5000; // Change testimonial every 5 seconds
+    const interval = 5000; // 5 seconds
+
+    function getVisibleCards() {
+        const cardWidth = cards[0].offsetWidth;
+        const containerWidth = wrapper.parentElement.offsetWidth;
+        return Math.round(containerWidth / cardWidth);
+    }
 
     function updateSlider() {
-        if (!wrapper) return;
-        const offset = currentIndex * -100;
-        wrapper.style.transform = `translateX(${offset}%)`;
-        
+        const cardWidth = cards[0].offsetWidth;
+        const visibleCards = getVisibleCards();
+        const maxIndex = cards.length - visibleCards;
+
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+
+        const offset = currentIndex * -cardWidth;
+        wrapper.style.transform = `translateX(${offset}px)`;
+
         // Update dots
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
@@ -114,28 +127,22 @@ function initializeTestimonialSlider() {
     }
 
     function nextSlide() {
-        if (cards.length === 0) return;
-        currentIndex = (currentIndex + 1) % cards.length;
+        const visibleCards = getVisibleCards();
+        const maxIndex = cards.length - visibleCards;
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
         updateSlider();
     }
 
-    // Start automatic sliding
     let slideInterval = setInterval(nextSlide, interval);
 
-    // Pause on hover
-    wrapper.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
+    wrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    wrapper.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, interval));
 
-    wrapper.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, interval);
-    });
+    window.addEventListener('resize', updateSlider);
 
-    // Initialize first slide
     updateSlider();
 }
 
-// Initialize testimonial slider when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     try {
         initializeTestimonialSlider();

@@ -18,7 +18,7 @@
 }
 
 /* Dark theme styles */
-body.dark-theme {
+[data-theme="dark"] {
     --primary-color: #e6c9a8;
     --secondary-color: #fff;
     --text-color: #fff;
@@ -37,7 +37,109 @@ body.dark-theme {
     --background-warm: #2C2C2C;
 }
 
-/* Theme toggle button */
+[data-theme="dark"] body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .bg-white {
+    background-color: var(--background-warm);
+}
+
+[data-theme="dark"] .text-gray-700,
+[data-theme="dark"] .text-gray-600,
+[data-theme="dark"] .text-gray-800 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .text-primary-dark,
+[data-theme="dark"] .text-primary {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .nav-link {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .bg-accent,
+[data-theme="dark"] .bg-warm,
+[data-theme="dark"] .bg-background-warm {
+    background-color: var(--background-warm);
+}
+
+[data-theme="dark"] .bg-primary-light {
+    background-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .hover\:bg-gray-50:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .hover\:text-primary:hover {
+    color: #3E2723 !important;
+}
+
+[data-theme="dark"] .hover\:text-gray-800:hover {
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .border-white {
+    border-color: var(--text-color);
+}
+
+[data-theme="dark"] .hover\:bg-white:hover {
+    background-color: var(--text-color);
+}
+
+[data-theme="dark"] .bg-primary {
+     background-color: #3E2723;  /* NEW */
+     color: #fff; 
+}
+
+[data-theme="dark"] .hover\:bg-primary-dark:hover {
+    background-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .bg-gray-200 {
+    background-color: var(--background-warm);
+}
+
+[data-theme="dark"] .text-gray-400,
+[data-theme="dark"] .text-gray-500 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .border-gray-300 {
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .focus\:ring-primary:focus,
+[data-theme="dark"] .focus\:ring-warm:focus {
+    --tw-ring-color: #3E2723;
+}
+
+[data-theme="dark"] .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+/* Theme toggle button - optimized for instant response */
 .theme-toggle {
     position: relative;
     width: 40px;
@@ -47,14 +149,24 @@ body.dark-theme {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    /* Reduce transition time for faster response */
+    transition: background-color 0.15s ease, transform 0.1s ease;
     background: transparent;
     border: none;
     color: var(--text-color);
+    /* Ensure button is immediately clickable */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .theme-toggle:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+    transition: transform 0.05s ease;
 }
 
 body.dark-theme .theme-toggle {
@@ -67,124 +179,24 @@ body.dark-theme .theme-toggle:hover {
 
 .theme-toggle i {
     font-size: 1.2rem;
-    transition: transform 0.3s ease;
+    /* Faster icon transition */
+    transition: transform 0.2s ease;
+    /* Prevent icon from being selectable */
+    pointer-events: none;
 }
 
 .theme-toggle:hover i {
     transform: rotate(30deg);
 }
 
-/* Dark theme specific styles */
-body.dark-theme {
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Optimize theme transitions for better performance */
+body {
+    /* Only transition background and color, not 'all' */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-body.dark-theme .bg-white {
-    background-color: var(--background-warm);
-}
+/* Add will-change for better performance on theme elements */
 
-body.dark-theme .text-gray-700,
-body.dark-theme .text-gray-600,
-body.dark-theme .text-gray-800 {
-    color: var(--text-color);
-}
-
-body.dark-theme .text-primary-dark {
-    color: var(--primary-color);
-}
-
-body.dark-theme .text-primary {
-    color: var(--primary-color);
-}
-
-body.dark-theme .nav-link {
-    color: var(--text-color);
-}
-
-body.dark-theme .nav-link:hover {
-    color: var(--primary-color);
-}
-
-body.dark-theme .bg-accent {
-    background-color: var(--accent-color);
-}
-
-body.dark-theme .bg-warm {
-    background-color: var(--background-warm);
-}
-
-body.dark-theme .bg-background-warm {
-    background-color: var(--background-warm);
-}
-
-body.dark-theme .bg-primary-light {
-    background-color: var(--primary-dark);
-}
-
-body.dark-theme .hover\:bg-gray-50:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-theme .hover\:text-primary:hover {
-    color: var(--primary-light) !important;
-}
-
-body.dark-theme .hover\:text-gray-800:hover {
-    color: var(--text-color) !important;
-}
-
-body.dark-theme .border-white {
-    border-color: var(--text-color);
-}
-
-body.dark-theme .hover\:bg-white:hover {
-    background-color: var(--text-color);
-}
-
-body.dark-theme .hover\:text-gray-800:hover {
-    color: var(--background-warm) !important;
-}
-
-body.dark-theme .bg-primary {
-    background-color: var(--primary-light);
-}
-
-body.dark-theme .hover\:bg-primary-dark:hover {
-    background-color: var(--primary-dark);
-}
-
-body.dark-theme .bg-gray-200 {
-    background-color: var(--background-warm);
-}
-
-body.dark-theme .text-gray-400 {
-    color: var(--text-color);
-}
-
-body.dark-theme .text-gray-500 {
-    color: var(--text-color);
-}
-
-body.dark-theme .border-gray-300 {
-    border-color: var(--accent-color);
-}
-
-body.dark-theme .focus\:ring-primary:focus {
-    --tw-ring-color: var(--primary-light);
-}
-
-body.dark-theme .focus\:ring-warm:focus {
-    --tw-ring-color: var(--primary-light);
-}
-
-body.dark-theme .shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-theme .shadow-sm {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-}
 
 .font-furniture {
     font-family: 'Playfair Display', Georgia, serif;
